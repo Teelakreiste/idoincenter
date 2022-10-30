@@ -1,0 +1,14 @@
+<h4>ALL PRODUCTS</h4>
+<swiper [slidesPerView]="element" [spaceBetween]="15" [navigation]="navigation" [loop]="false" [autoplay]="true">
+    <ng-template class="div-slide" swiperSlide>
+        <div class="card">
+            <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'" class="card-img-top" src="https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=sm&ratio=sq&f=jpg">
+            <div class="card-body">
+                <h5 class="card-title">COCA COLA</h5>
+                <p id="c-text" class="card-text">Price: $<strong>1</strong> USD.</p>
+                <p id="c-text-two" class="card-text">Stock: <strong>20</strong> uds.</p>
+                <a class="btn btn-primary" (click)="viewInfo('1')">View</a>
+            </div>
+        </div>
+    </ng-template>
+</swiper>

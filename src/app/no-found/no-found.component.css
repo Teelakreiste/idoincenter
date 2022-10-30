@@ -1,0 +1,64 @@
+.container {
+    display: table;
+    height: 200px;
+}
+
+.image-background {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 60%;
+}
+
+.container img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.container-inside {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.error-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.error-template h1 {
+    color: #3b5468;
+}
+
+.error-template h2 {
+    color: #56B38F;
+}
+
+.error-details {
+    color: #262525;
+}
+
+.error-actions {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.error-actions .btn {
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: #56B38F;
+    border-color: #9FBACE;
+}
+
+.btn-primary:hover {
+    background-color: #9FBACE;
+    border-color: #56B38F;
+    transition: all 0.5s;
+}
