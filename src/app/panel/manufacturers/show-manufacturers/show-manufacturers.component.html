@@ -1,0 +1,33 @@
+<div>
+    <div class="divider"></div>
+    <h4>Manufacturer management</h4>
+    <p>In this section you can manage the manufacturers.</p>
+    <swiper [slidesPerView]="element" [spaceBetween]="15" [navigation]="navigation" [loop]="false" [autoplay]="true">
+        <ng-template class="div-slide" swiperSlide>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manufacturer</h5>
+                    <p id="c-text" class="card-text">
+                
+                    </p>
+                    <a class="btn btn-primary" (click)="addManufacturer()">New</a>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template class="div-slide" swiperSlide *ngFor="let manufacturer of manufacturers">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{manufacturer.name}}</h5>
+                    <p id="c-text" class="card-text">
+                        {{manufacturer.description}}
+                    </p>
+                    <a class="btn btn-admin-edit"
+                        (click)="editManufacturer(manufacturer.id)"><i class="fa-solid fa-pen"></i></a>
+                    <span class="separator"></span>
+                    <a class="btn btn-admin-remove"
+                        (click)="removeManufacturer(manufacturer.id)"><i class="fa-solid fa-trash-can"></i></a>
+                </div>
+            </div>
+        </ng-template>
+    </swiper>
+</div>
