@@ -2,7 +2,7 @@
 <div class="container">
     <!-- Left Column / Headphones Image -->
     <div class="left-column">
-        <img appBrokenImg [defaultImage]="'../../assets/images/undraw_page_404_re_e9o6.svg'" src="https://img.lalr.co/cms/2017/04/12033800/Productos_Vendidos_CocaCola1204.jpg?size=sm&ratio=sq&f=jpg">
+        <img appBrokenImg [defaultImage]="'../../assets/images/undraw_page_404_re_e9o6.svg'" src="{{products.image}}">
     </div>
 
     <!-- Right Column -->
@@ -10,16 +10,16 @@
         <!-- Product Description -->
         <div class="product-description">
             <a (click)="back()"><i class="fa-solid fa-arrow-left"></i></a>
-            <span>Drink</span>
-            <h1>Coca Cola</h1>
-            <p>Cola is a carbonated soft drink flavored with vanilla, cinnamon, citrus oils and other flavorings. Cola became popular worldwide after the American pharmacist John Stith Pemberton invented Coca-Cola, a trademarked brand, in 1886, which was imitated by other manufacturers.</p>
+            <span>{{products.category}} - {{products.manufacturer}}</span>
+            <h1>{{products.name}}</h1>
+            <p>{{products.description}}</p>
         </div>
 
         <!-- Product Configuration -->
         <div class="product-configuration">
             <!-- Product Color -->
             <div class="product-info">
-                <span>Stock: <strong>20</strong> uds<br></span>
+                <span>Stock: <strong>{{products.stock}}</strong> uds<br></span>
                 <span>Quantity: <strong>
                     <!-- <form [formGroup]="quantityForm" (ngSubmit)="addToCart(products)">
                         <input formControlName="quantity" type="number" class="form-control" min="{{min}}" max="{{max}}" value="0" name="quantity">
@@ -44,7 +44,7 @@
 
         <!-- Product Pricing -->
         <div class="product-price">
-            <span>$<strong>1</strong></span>
+            <span>$<strong>{{products.price}}</strong></span>
             <!-- <a class="cart-btn" (click)="addCart.click()">Add to cart</a> -->
             <a class="cart-btn card-btn-one">Buy</a>
             <a class="cart-btn card-btn-two">Add to cart</a>

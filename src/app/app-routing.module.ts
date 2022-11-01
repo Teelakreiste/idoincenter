@@ -8,6 +8,8 @@ import { AddCategoryComponent } from './panel/categories/add-category/add-catego
 import { EditCategoryComponent } from './panel/categories/edit-category/edit-category.component';
 import { AddManufacturerComponent } from './panel/manufacturers/add-manufacturer/add-manufacturer.component';
 import { EditManufacturerComponent } from './panel/manufacturers/edit-manufacturer/edit-manufacturer.component';
+import { AddProductComponent } from './panel/products/add-product/add-product.component';
+import { EditProductComponent } from './panel/products/edit-product/edit-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'panel/admin/categories/edit/:id', component: EditCategoryComponent },
   { path: 'panel/admin/manufacturers/add', component: AddManufacturerComponent },
   { path: 'panel/admin/manufacturers/edit/:id', component: EditManufacturerComponent },
+  { path: 'panel/admin/products/add', component: AddProductComponent },
+  { path: 'panel/admin/products/edit/:id', component: EditProductComponent },
   { path: 'not-found', component: NoFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];

@@ -1,0 +1,130 @@
+<app-header></app-header>
+<div class="container bg-white rounded-5 shadow-5-strong p-5">
+    <a (click)="back()"><i class="fa-solid fa-arrow-left"></i></a>
+    <h1>ADD PRODUCT</h1>
+    <div class="row justify-content-center">
+        <div class="header">
+        </div>
+        <div class="col-md-6">
+            <form [formGroup]="addProductForm" (ngSubmit)="submit()">
+                <div class="form-group">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" class="form-control" formControlName="name" />
+                    <div class="alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div class="container-error-message" *ngIf="name.errors?.['required']">
+                            Name is required
+                        </div>
+                        <div class="container-error-message" *ngIf="(name.dirty || name.touched) && name.invalid && name.errors?.['pattern']">
+                            Name is not valid
+                        </div>
+                        <div class="container-error-message" *ngIf="name.errors?.['minlength']">
+                            Name must contain at least 3 characters.
+                        </div>
+                        <div class="container-error-message" *ngIf="name.errors?.['maxlength']">
+                            Name must contain a maximum of 40 characters.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" formControlName="description"></textarea>
+                    <div class="alert-danger" *ngIf="description.invalid && (description.dirty || description.touched)">
+                        <div class="container-error-message" *ngIf="description.errors?.['required']">
+                            Description is required
+                        </div>
+                        <div class="container-error-message" *ngIf="description.errors?.['minlength']">
+                            Description must contain at least 5 characters.
+                        </div>
+                        <div class="container-error-message" *ngIf="description.errors?.['maxlength']">
+                            Description must contain a maximum of 1000 characters.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="from-group">
+                    <label class="form-label" for="category">Category</label>
+                    <select class="form-control" formControlName="category">
+                        <option value="" selected>Select Category</option>
+                        <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+                    </select>
+
+                    <div class="alert-danger" *ngIf="category.invalid && (category.dirty || category.touched)">
+                        <div class="container-error-message" *ngIf="category.errors?.['required']">
+                            Category is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="from-group">
+                    <label class="form-label" for="manufacturer">Manufacturer</label>
+                    <select class="form-control" formControlName="manufacturer">
+                        <option value="" selected>Select Manufacturer</option>
+                        <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.name">{{manufacturer.name}}</option>
+                    </select>
+
+                    <div class="alert-danger" *ngIf="manufacturer.invalid && (manufacturer.dirty || manufacturer.touched)">
+                        <div class="container-error-message" *ngIf="manufacturer.errors?.['required']">
+                            Manufacturer is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="price">Price</label>
+                    <input type="number" class="form-control" formControlName="price" />
+                    <div class="alert-danger" *ngIf="price.invalid && (price.dirty || price.touched)">
+                        <div class="container-error-message" *ngIf="price.errors?.['required']">
+                            Price is required
+                        </div>
+                        <div class="container-error-message" *ngIf="(price.dirty || price.touched) && price.invalid && price.errors?.['pattern']">
+                            Price is not valid
+                        </div>
+                        <div class="container-error-message" *ngIf="price.errors?.['min']">
+                            Price must be greater than 0.
+                        </div>
+                        <div class="container-error-message" *ngIf="price.errors?.['max']">
+                            Price must be less than 9999999999.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="stock">stock</label>
+                    <input type="number" class="form-control" formControlName="stock" />
+                    <div class="alert-danger" *ngIf="stock.invalid && (stock.dirty || stock.touched)">
+                        <div class="container-error-message" *ngIf="stock.errors?.['required']">
+                            Stock is required
+                        </div>
+                        <div class="container-error-message" *ngIf="(stock.dirty || stock.touched) && stock.invalid && price.errors?.['pattern']">
+                            Stock is not valid
+                        </div>
+                        <div class="container-error-message" *ngIf="stock.errors?.['min']">
+                            Stock must be greater than 0.
+                        </div>
+                        <div class="container-error-message" *ngIf="stock.errors?.['max']">
+                            Stock must be less than 9999999999.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'" class="img-file" [src]="imgSrc" (click)="fileUploader.click()">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="image"></label>
+                    <input type="file" accept="image/*" class="form-control" #fileUploader formControlName="image" (change)="showPreview($event)">
+                    <div class="alert-danger" *ngIf="image.invalid && (image.dirty || image.touched)">
+                        <div class="container-error-message" *ngIf="image.errors?.['required']">
+                            Image is required
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="!addProductForm.valid">Submit</button>
+            </form>
+        </div>
+        <div class="header">
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

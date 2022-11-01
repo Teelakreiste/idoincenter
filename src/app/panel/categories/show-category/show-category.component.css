@@ -2,7 +2,7 @@
 
 .swiper {
     width: 100%;
-    height: 300px;
+    height: 150px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -11,6 +11,7 @@
 }
 
 .card { 
+    width: 233;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -24,6 +25,13 @@
     background-color: #56B38F;
     padding: 5px;
     border-radius: 10px;
+}
+
+.card-img-top {
+    background-color: rgba(225, 197, 58, 0.4);
+    height: 110px;
+    background-size: cover;
+    object-fit: cover;
 }
 
 .card-body {

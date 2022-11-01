@@ -28,6 +28,9 @@ import { EditCategoryComponent } from './panel/categories/edit-category/edit-cat
 import { AddManufacturerComponent } from './panel/manufacturers/add-manufacturer/add-manufacturer.component';
 import { EditManufacturerComponent } from './panel/manufacturers/edit-manufacturer/edit-manufacturer.component';
 import { ShowManufacturersComponent } from './panel/manufacturers/show-manufacturers/show-manufacturers.component';
+import { AddProductComponent } from './panel/products/add-product/add-product.component';
+import { EditProductComponent } from './panel/products/edit-product/edit-product.component';
+import { ShowProductsComponent } from './panel/products/show-products/show-products.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { ShowManufacturersComponent } from './panel/manufacturers/show-manufactu
     EditCategoryComponent,
     AddManufacturerComponent,
     EditManufacturerComponent,
-    ShowManufacturersComponent
+    ShowManufacturersComponent,
+    AddProductComponent,
+    EditProductComponent,
+    ShowProductsComponent
   ],
   imports: [
     BrowserModule,

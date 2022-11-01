@@ -22,9 +22,7 @@ export class ShowManufacturersComponent implements OnInit {
 
   constructor(private router: Router,
     private manufacturerService: ManufacturerService) {
-    this.width = 1200;
-    this.element = 5.3;
-    this.navigation = false;
+    this.calcElemntWidth();
   }
 
   ngOnInit(): void {
@@ -52,6 +50,26 @@ export class ShowManufacturersComponent implements OnInit {
 
   removeManufacturer(id: string) {
     this.manufacturerService.deleteManufacturer(id);
+  }
+
+  calcElemntWidth() {
+    this.width = document.body.clientWidth;
+    if (this.width < 400) {
+      this.element = 1.5;
+      this.navigation = false;
+    } else if (this.width < 600) {
+      this.element = 2.5;
+      this.navigation = false;
+    } else if (this.width < 800) {
+      this.element = 3.5;
+      this.navigation = false;
+    } else if (this.width < 1000) {
+      this.element = 4.5;
+      this.navigation = false;
+    } else {
+      this.element = 5.3;
+      this.navigation = true;
+    }
   }
 
 }

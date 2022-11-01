@@ -1,0 +1,136 @@
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+	text-transform: uppercase;
+    /*margin: 15px 0;*/
+    margin-bottom: 25px;
+	color: #56B38F;
+}
+
+.container {
+    margin-top: 25px;
+	justify-content: center;
+	display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0rem;
+	padding:0 2rem;
+}
+
+.header {
+    width: 100px;
+    height: auto;
+    border-radius: 20px;
+    background-color: rgba(86, 179, 143, 0.1);
+    text-align: center;
+    margin: 15px 0;
+    margin-bottom: 25px;
+    color: #56B38F;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: -50px;
+    border: 5px solid #fff;
+}
+
+.img-file {
+    width: 350px;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.form-group {
+    padding: 10px 0;
+}
+
+.form-label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #9FBACE;
+}
+
+.form-control {
+    padding: 10px 0;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 1px 1px 5px #56B38F;
+    border: none;
+    border: 0 solid transparent;
+    transition: .3s ease all;
+}
+
+.form-control:focus {
+    border: 2px solid #9FBACE;
+    outline: none;
+}
+
+.form-check-input {
+    background-color: #9FBACE;
+}
+
+.form-check-input[type="checkbox"]:checked {
+    background-color: #56B38F;
+}
+
+.form-switch .form-check-input:checked[type=checkbox]:after {
+    background-color: #56B38F;
+}
+
+.form-check-input[type=checkbox]:focus:after {
+    background-color: #9FBACE !important;
+}
+
+.form-check-label {
+    font-weight: bold;
+    color: #9FBACE;
+}
+
+.btn{
+    display: block;
+    margin: 0 auto;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #9FBACE, #56B38F, #9FBACE);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.alert-danger {
+	color: #721c24;
+	background-color: #f8d7da;
+	border-color: #f5c6cb;
+	padding: 10px;
+	border-radius: 10px;
+	margin: 10px 0;
+}
+
+.container-error-message {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+@media screen and (max-width: 770px){
+    .header {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 910px){
+    .img-file {
+        width: 300px;
+        height: 200px;
+    }
+}
