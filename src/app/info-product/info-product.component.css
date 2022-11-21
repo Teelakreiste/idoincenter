@@ -19,8 +19,8 @@
 /* Left Column */
 .left-column img {
     display: block;
-    width: 90%;
-    height: 100%;
+    width: 500px;
+    height: 500px;
     position: absolute;
     left: 0;
     top: 0;

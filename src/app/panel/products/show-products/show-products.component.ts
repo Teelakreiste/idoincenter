@@ -4,6 +4,8 @@ import { Product } from 'src/app/models/product.model';
 import { ImageService } from 'src/app/services/image.service';
 import { ProductService } from 'src/app/services/product.service';
 
+import Swal from 'sweetalert2'
+
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -51,8 +53,26 @@ export class ShowProductsComponent implements OnInit {
   }
 
   removeProduct(id: string, image: string) {
-    this.imageService.deleteImageByUrl(image);
-    this.productService.deleteProduct(id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      background: '#CCE2ED',
+      confirmButtonColor: '#56B38F',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.imageService.deleteImageByUrl(image);
+        this.productService.deleteProduct(id);
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success',
+        )
+      }
+    })
   }
 
   calcElemntWidth() {

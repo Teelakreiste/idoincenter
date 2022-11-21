@@ -4,13 +4,13 @@
     <p>In this section you can manage the manufacturers.</p>
     <swiper [slidesPerView]="element" [spaceBetween]="15" [navigation]="navigation" [loop]="false" [autoplay]="true">
         <ng-template class="div-slide" swiperSlide>
-            <div class="card">
+            <div class="card card-add">
                 <div class="card-body">
                     <h5 class="card-title">Manufacturer</h5>
                     <p id="c-text" class="card-text">
                 
                     </p>
-                    <a class="btn btn-primary" (click)="addManufacturer()">New</a>
+                    <a class="btn btn-admin-add" (click)="addManufacturer()"><i class="fa-solid fa-plus"></i></a>
                 </div>
             </div>
         </ng-template>

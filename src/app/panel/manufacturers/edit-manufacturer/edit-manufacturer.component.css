@@ -28,6 +28,16 @@ h1 {
     color: #56B38F;
 }
 
+.fa-solid {
+    color: #275987;
+    margin: 0 10px;
+}
+
+.fa-solid:hover {
+    color: #9FBACE;
+    cursor: pointer;
+}
+
 .avatar {
     width: 100px;
     height: 100px;

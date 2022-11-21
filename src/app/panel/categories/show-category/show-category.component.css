@@ -29,9 +29,15 @@
 
 .card-img-top {
     background-color: rgba(225, 197, 58, 0.4);
-    height: 110px;
+    height: 160px;
+    width: 160px;
     background-size: cover;
     object-fit: cover;
+}
+
+.card img {
+    display: block;
+    margin: 0 auto;
 }
 
 .card-body {
@@ -49,6 +55,20 @@
 
 .card-text strong{
     color: #479677;
+}
+
+.card-add .card-title {
+    color: #56B38F;
+    background-color: #CCE2ED;
+}
+
+.card-add .card-body {
+    background-color: #56B38F;
+}
+
+.card-add .card-img-top {
+    width: 100%;
+    height: 160px;
 }
 
 .swiper-button-next, .swiper-button-prev {
@@ -116,12 +136,15 @@
 
 .btn-admin-add {
     width: 80%;
-    display: block;
-    margin: 0 auto;
+    background: none;
+    border: 2px solid #61f1b5;
+    color: #61f1b5;
 }
 
 .btn-admin-add:hover {
     color: #fff;
+    background: #61f1b5;
+    border: 2px solid #61f1b5;
 }
 
 .btn-admin-edit {

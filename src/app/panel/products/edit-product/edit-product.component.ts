@@ -59,8 +59,8 @@ export class EditProductComponent implements OnInit {
     this.imgSrc = product.image;
     this.imageUrl = product.image;
     this.editProductForm = this.formBuilder.group({
-      name: [product.name, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      description: [product.description, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      name: [product.name, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      description: [product.description, [Validators.required, Validators.minLength(3), Validators.maxLength(2000)]],
       price: [product.price, [Validators.required, Validators.min(0), Validators.max(999999999)]],
       manufacturer: [product.manufacturer, [Validators.required]],
       category: [product.category, [Validators.required]],
@@ -117,7 +117,7 @@ export class EditProductComponent implements OnInit {
 
   updateImage() {
     if (this.selectedImage != null) {
-      var filePath = `products/${this.editProductForm.value.category}/${this.editProductForm.value.manufacturer}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
+      var filePath = `products/${this.editProductForm.value.category}/${this.editProductForm.value.manufacturer}/${this.editProductForm.value.name.replace(" ","_")}-${new Date().getTime()}`;
       const fileRef = this.imageService.getRef(filePath);
       this.imageService.deleteImageByUrl(this.imageUrl);
       this.imageService.uploadImage(filePath, this.selectedImage).snapshotChanges().pipe(

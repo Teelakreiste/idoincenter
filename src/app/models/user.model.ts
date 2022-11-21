@@ -1,24 +1,35 @@
 export interface User {
     uid: string;
-    name: string;
+    firstName: null,
+    lastName: null,
+    userName: string;
     email: string;
+    phoneNum: string;
+    mobileNum: string;
     password: string;
     photoURL: string;
-    age: number;
     birthday: Date;
     role: [
         'write' | 'read' | 'admin'
     ];
 }
 
-export interface Address {
+export class Address {
     street: string;
     city: string;
     state: string;
     zip: string;
 }
 
-export interface UserAddress {
+export class UserAddress {
     uid: string;
     address: Address;
+}
+
+export class payment {
+    uid: string;
+    cardNumber: string;
+    cardName: string;
+    cardExpiration: string;
+    cardCVV: string;
 }

@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { SwiperModule } from 'swiper/angular';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 import { environment } from '../environments/environment';
 
 import { AngularFireModule } from '@angular/fire/compat';
@@ -31,6 +33,12 @@ import { ShowManufacturersComponent } from './panel/manufacturers/show-manufactu
 import { AddProductComponent } from './panel/products/add-product/add-product.component';
 import { EditProductComponent } from './panel/products/edit-product/edit-product.component';
 import { ShowProductsComponent } from './panel/products/show-products/show-products.component';
+import { SignInComponent } from './session/sign-in/sign-in.component';
+import { SignUpComponent } from './session/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './session/forgot-password/forgot-password.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { ProfileSettingsComponent } from './user/profile-settings/profile-settings.component';
+import { ShowUsersComponent } from './panel/users/show-users/show-users.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +59,13 @@ import { ShowProductsComponent } from './panel/products/show-products/show-produ
     ShowManufacturersComponent,
     AddProductComponent,
     EditProductComponent,
-    ShowProductsComponent
+    ShowProductsComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    UpdateUserComponent,
+    ProfileSettingsComponent,
+    ShowUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +76,8 @@ import { ShowProductsComponent } from './panel/products/show-products/show-produ
     AngularFirestoreModule,
     AngularFireStorageModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SweetAlert2Module
   ],
   providers: [],
   bootstrap: [AppComponent]

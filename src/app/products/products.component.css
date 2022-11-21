@@ -10,7 +10,8 @@
     padding: 0 20px;
 }
 
-.card { 
+.card {
+    width: 100%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -19,9 +20,17 @@
 
 .card-img-top {
     background-color: rgba(225, 197, 58, 0.4);
-    height: 110px;
+    height: 150px;
+    width: 150px;
     background-size: cover;
     object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card img {
+    display: block;
+    margin: 0 auto;
 }
 
 .card-title {

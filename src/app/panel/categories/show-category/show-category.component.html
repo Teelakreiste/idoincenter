@@ -4,13 +4,13 @@
     <p>In this section you can manage categories of your products, add new categories, edit existing ones and delete them.</p>
     <swiper [slidesPerView]="element" [spaceBetween]="15" [navigation]="navigation" [loop]="false" [autoplay]="true">
         <ng-template class="div-slide" swiperSlide>
-            <div class="card">
+            <div class="card card-add">
                 <div class="card-body">
                     <h5 class="card-title">Category</h5>
                     <p id="c-text" class="card-text">
                 
                     </p>
-                    <a class="btn btn-primary" (click)="addCategory()">New</a>
+                    <a class="btn btn-admin-add" (click)="addCategory()"><i class="fa-solid fa-plus"></i></a>
                 </div>
             </div>
         </ng-template>

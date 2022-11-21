@@ -4,13 +4,14 @@
     <p>In this section you can manage the products.</p>
     <swiper class="swiper-product" [slidesPerView]="element" [spaceBetween]="15" [navigation]="navigation" [loop]="false" [autoplay]="true">
         <ng-template class="div-slide" swiperSlide>
-            <div class="card">
+            <div class="card card-add">
+                <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'" class="card-img-top" src="">
                 <div class="card-body">
                     <h5 class="card-title">Product</h5>
                     <p id="c-text" class="card-text">
                 
                     </p>
-                    <a class="btn btn-primary" (click)="addProduct()">New</a>
+                    <a class="btn btn-admin-add" (click)="addProduct()"><i class="fa-solid fa-plus"></i></a>
                 </div>
             </div>
         </ng-template>
@@ -18,9 +19,8 @@
             <div class="card">
                 <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'" class="card-img-top" [src]="product.image">
                 <div class="card-body">
-                    <h5 class="card-title">{{product.name}}</h5>
+                    <h5 class="card-title">{{product.name}} - {{product.manufacturer}}</h5>
                     <p id="c-text" class="card-text">
-                        {{product.description}}
                     </p>
                     <a class="btn btn-admin-edit"
                         (click)="editProduct(product.id)"><i class="fa-solid fa-pen"></i></a>

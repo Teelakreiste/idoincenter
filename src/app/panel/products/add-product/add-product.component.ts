@@ -39,8 +39,8 @@ export class AddProductComponent implements OnInit {
 
   createFormGroup() {
     return this.formBuilder.group({
-      name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
-      description: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+      name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+      description: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(2000)]),
       price: new FormControl('', [Validators.required, Validators.min(0), Validators.max(999999999)]),
       manufacturer: new FormControl('', [Validators.required]),
       category: new FormControl('', [Validators.required]),
@@ -99,7 +99,7 @@ export class AddProductComponent implements OnInit {
 
   submit() {
     if (this.addProductForm.valid && !this.index) {
-      var filePath = `products/${this.addProductForm.value.category}/${this.addProductForm.value.manufacturer}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
+      var filePath = `products/${this.addProductForm.value.category}/${this.addProductForm.value.manufacturer}/${this.addProductForm.value.name.replace(" ","_")}-${new Date().getTime()}`;
       const fileRef = this.imageService.getRef(filePath);
 
       this.imageService.uploadImage(filePath, this.selectedImage).snapshotChanges().pipe(

@@ -1,0 +1,32 @@
+<div>
+    <div class="divider"></div>
+    <h4>Users management</h4>
+    <p>In this section you can manage users.</p>
+    <swiper class="swiper-product" [slidesPerView]="element" [spaceBetween]="15" [navigation]="navigation" [loop]="false" [autoplay]="true">
+        <ng-template class="div-slide" swiperSlide>
+            <div class="card card-add">
+                <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'" class="card-img-top" src="">
+                <div class="card-body">
+                    <h5 class="card-title">User</h5>
+                    <p id="c-text" class="card-text">
+                
+                    </p>
+                    <a class="btn btn-admin-add" (click)="addUser()"><i class="fa-solid fa-plus"></i></a>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template class="div-slide" swiperSlide *ngFor="let user of users">
+            <div class="card">
+                <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'" class="card-img-top" [src]="user.photoURL">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.firstName}} {{user.lastName}} - {{user.userName}}</h5>
+                    <p id="c-text" class="card-text">
+                    </p>
+                    <a class="btn btn-admin-edit"
+                        (click)="editUser(user.uid)"><i class="fa-solid fa-pen"></i></a>
+                    <span class="separator"></span>
+                </div>
+            </div>
+        </ng-template>
+    </swiper>
+</div>

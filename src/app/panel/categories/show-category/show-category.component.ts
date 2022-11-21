@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 
+import Swal from 'sweetalert2'
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -49,7 +50,25 @@ export class ShowCategoryComponent implements OnInit {
   }
 
   removeCategory(id: string) {
-    this.categoryService.deleteCategory(id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      background: '#CCE2ED',
+      confirmButtonColor: '#56B38F',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.categoryService.deleteCategory(id);
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
   }
 
   calcElemntWidth() {

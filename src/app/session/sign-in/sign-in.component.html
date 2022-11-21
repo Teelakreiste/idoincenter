@@ -1,0 +1,41 @@
+<div class="container-background">
+    <img appBrokenImg [defaultImage]="'../../assets/images/undraw_page_404_re_e9o6.svg'" class="mid-bg" src="../../../assets/images/undraw_happy_feeling_re_e76r.svg">
+    <div class="container">
+        <div class="login-container">
+            <div class="bg-white rounded-5 shadow-5-strong p-5 div-form">
+                <img appBrokenImg [defaultImage]="'../../assets/images/undraw_page_404_re_e9o6.svg'" class="avatar" src="../../../assets/logo/home-control.png">
+                <h2>LOGIN</h2>
+                <div class="row justify-content-center">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+                        <div class="mb-4">
+                            <label for="user" class="form-label">Email</label>
+                            <input formControlName="email" type="text" class="form-control" id="user" name="usuario">
+                            <div class="alert-danger" *ngIf="user.invalid && (user.dirty || user.touched)">
+                                <div class="container-error-message" *ngIf="user.errors?.['required']">
+                                    Email is required
+                                </div>
+                                <div class="container-error-message"
+                                    *ngIf="(user.dirty || user.touched) && user.invalid && user.errors?.['pattern']">
+                                    Email is not valid
+                                </div>
+                            </div>
+                            <label for="password" class="form-label">Password</label>
+                            <input formControlName="password" [type]="fieldTextType ? 'text' : 'password'" class="form-control" id="password" name="password">
+                            <span (click)="toggleFieldTextType()" *ngIf="password.value != null && password.value != ''" [class]="(!fieldTextType ?'field-icon fa-solid fa-eye':'field-icon fa-solid fa-eye-slash')"></span>
+                            <div class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                                <div class="container-error-message">
+                                    Password is required
+                                </div>
+                            </div>
+                            <a id="pwd" class="pr" (click)="onForgotPassword()">Forgot password?</a>
+                        </div>
+                        <input type="submit" class="btn btn-success" value="Sign In">
+                    </form>
+                </div>
+                <div class="div-register">
+                    <p>Don't have an account?<a class="pr" (click)="signUp()"> Sign up here</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

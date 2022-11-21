@@ -20,22 +20,38 @@
             <div class="nav-item dropdown-mb">
                 <a class="nav-link" href="" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    <img appBrokenImg [defaultImage]="'../../assets/images/undraw_pic_profile_re_i9i4.svg'" class="img-profile" src="" alt="">
+                    <span class="user">{{user}}
+                        <img *ngIf="!stateLogin" appBrokenImg [defaultImage]="'../../assets/images/undraw_profile_pic_re_tdyo.svg'"
+                            class="img-profile" [src]="imgProfile" alt="">
+                    </span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item">Setting</a>
-                    <!-- <a class="dropdown-item" (click)="logout()">Logout</a> -->
+                <div *ngIf="stateLogin" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" (click)="goToProfile()">Profile</a>
+                    <a *ngIf="isAdmin || isWriter" class="dropdown-item" (click)="goToAdmin()">Administration</a>
+                    <a class="dropdown-item" (click)="signOut()">Logout</a>
+                </div>
+                <div *ngIf="!stateLogin" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" (click)="signIn()">Sign in</a>
+                    <a class="dropdown-item" (click)="signUp()">Sign up</a>
                 </div>
             </div>
         </div>
         <div class="nav-item dropdown">
             <a class="nav-link" href="" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                <img appBrokenImg [defaultImage]="'../../assets/images/undraw_pic_profile_re_i9i4.svg'" class="img-profile" src="" alt="">
+                <span class="user">{{user}}
+                    <img *ngIf="!stateLogin" appBrokenImg [defaultImage]="'../../assets/images/undraw_profile_pic_re_tdyo.svg'"
+                        class="img-profile" [src]="imgProfile" alt="">
+                </span>
             </a>
-            <div class="dropdown-menu dp" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item">Setting</a>
-                <!-- <a class="dropdown-item" (click)="logout()">Logout</a> -->
+            <div *ngIf="stateLogin" class="dropdown-menu dp" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" (click)="goToProfile()">Profile</a>
+                <a *ngIf="isAdmin || isWriter" class="dropdown-item" (click)="goToAdmin()">Administration</a>
+                <a class="dropdown-item" (click)="signOut()">Logout</a>
+            </div>
+            <div *ngIf="!stateLogin" class="dropdown-menu dp" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" (click)="signIn()">Sign in</a>
+                <a class="dropdown-item" (click)="signUp()">Sign up</a>
             </div>
         </div>
     </div>
