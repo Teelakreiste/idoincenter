@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 import Swal from 'sweetalert2'
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -20,14 +23,42 @@ export class ShowCategoryComponent implements OnInit {
   element: number;
   navigation: boolean;
   categories: Category[];
+  isAdmin: boolean = false;
 
   constructor(private router: Router,
+    private authService: AuthService,
+    private firebaseService: FirebaseService,
     private categoryService: CategoryService) {
+    this.isAdmin = false;
+    this.user();
     this.calcElemntWidth();
   }
 
   ngOnInit(): void {
     this.getCategories();
+  }
+
+  user() {
+    this.authService.stateUser().subscribe(user => {
+      if (user) {
+        this.getDatosUser(user.uid);
+      }
+    });
+  }
+
+  getDatosUser(uid: string) {
+    const path = 'users';
+    const id = uid;
+    this.firebaseService.getDocumentById<User>(path, id).subscribe(data => {
+      if (data) {
+        const role = data.role;
+        role.forEach(element => {
+          if (element === 'admin') {
+            this.isAdmin = true;
+          }
+        });
+      }
+    });
   }
 
   getCategories() {

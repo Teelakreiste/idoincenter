@@ -1,4 +1,4 @@
-export class Product {
+export interface Product {
     id: string;
     name: string;
     description: string;
@@ -8,4 +8,12 @@ export class Product {
     image: string;
     stock: number;
     date: Date;
+}
+
+export interface Cart {
+    product: Product;
+    quantity: number;
+    total: number;
+    id: string;
+    uid: string;
 }

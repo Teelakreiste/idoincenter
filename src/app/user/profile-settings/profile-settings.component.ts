@@ -191,7 +191,6 @@ export class ProfileSettingsComponent implements OnInit {
     });
   }
 
-
   reset() {
     if (!this.isEdit) {
       this.isEdit = true;
@@ -232,8 +231,8 @@ export class ProfileSettingsComponent implements OnInit {
       }
     }
     if (!this.profileForm.get('read').value && !this.profileForm.get('write').value) {
-      this.userData.role.push('read');
       this.userData.role.pop();
+      this.userData.role.push('read');
     } else {
       if (this.profileForm.get('read').value) {
         this.userData.role.push('read');

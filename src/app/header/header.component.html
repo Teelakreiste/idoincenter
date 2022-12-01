@@ -15,7 +15,7 @@
                 </form> -->
             </div>
             <div class="nav-item">
-                <!-- <a class="nav-link" (click)="goToCart()"><i class="fa-solid fa-cart-shopping"></i></a> -->
+                <a *ngIf="stateLogin" class="nav-link cart" (click)="goToCart()"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
             <div class="nav-item dropdown-mb">
                 <a class="nav-link" href="" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -27,7 +27,7 @@
                 </a>
                 <div *ngIf="stateLogin" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" (click)="goToProfile()">Profile</a>
-                    <a *ngIf="isAdmin || isWriter" class="dropdown-item" (click)="goToAdmin()">Administration</a>
+                    <a *ngIf="isAdmin || isWriter" class="dropdown-item" (click)="goToAdmin()">{{title}}</a>
                     <a class="dropdown-item" (click)="signOut()">Logout</a>
                 </div>
                 <div *ngIf="!stateLogin" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -46,7 +46,7 @@
             </a>
             <div *ngIf="stateLogin" class="dropdown-menu dp" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" (click)="goToProfile()">Profile</a>
-                <a *ngIf="isAdmin || isWriter" class="dropdown-item" (click)="goToAdmin()">Administration</a>
+                <a *ngIf="isAdmin || isWriter" class="dropdown-item" (click)="goToAdmin()">{{title}}</a>
                 <a class="dropdown-item" (click)="signOut()">Logout</a>
             </div>
             <div *ngIf="!stateLogin" class="dropdown-menu dp" aria-labelledby="navbarDropdownMenuLink">

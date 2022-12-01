@@ -21,23 +21,15 @@
             <div class="product-info">
                 <span>Stock: <strong>{{products.stock}}</strong> uds<br></span>
                 <span>Quantity: <strong>
-                    <!-- <form [formGroup]="quantityForm" (ngSubmit)="addToCart(products)">
-                        <input formControlName="quantity" type="number" class="form-control" min="{{min}}" max="{{max}}" value="0" name="quantity">
+                    <form [formGroup]="quantityForm" (ngSubmit)="submit()">
+                        <input formControlName="quantity" type="number" class="form-control" min="1" value="1" name="quantity">
                         <div class="alert-danger" *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
                             <div class="container-error-message" *ngIf="quantity.errors?.['required']">
                                 <span class="error-message">Quantity is required</span>
                             </div>
-                            <div class="container-error-message"
-                                *ngIf="quantity.errors?.['min']">
-                                <span class="error-message">Quantity must be greater than {{min-1}}</span>
-                            </div>
-                            <div class="container-error-message"
-                                *ngIf="quantity.errors?.['max']">
-                                <span class="error-message">Quantity must be less than {{max+1}}</span>
-                            </div>
                         </div>
                         <button [disabled]="!quantityForm.valid" type="submit" id="btn-add" #addCart></button>
-                    </form> -->
+                    </form>
                 </strong> uds</span>
             </div>
         </div>
@@ -47,7 +39,7 @@
             <span>$<strong>{{products.price}}</strong></span>
             <!-- <a class="cart-btn" (click)="addCart.click()">Add to cart</a> -->
             <a class="cart-btn card-btn-one">Buy</a>
-            <a class="cart-btn card-btn-two"><i class="fa-solid fa-cart-plus"></i></a>
+            <a class="cart-btn card-btn-two" (click)="addCart.click()"><i class="fa-solid fa-cart-plus"></i></a>
         </div>
     </div>
 </div>

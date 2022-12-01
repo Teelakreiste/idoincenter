@@ -96,7 +96,6 @@ export class AddProductComponent implements OnInit {
     });
   }
 
-
   submit() {
     if (this.addProductForm.valid && !this.index) {
       var filePath = `products/${this.addProductForm.value.category}/${this.addProductForm.value.manufacturer}/${this.addProductForm.value.name.replace(" ","_")}-${new Date().getTime()}`;

@@ -19,6 +19,7 @@ import { SignUpComponent } from './session/sign-up/sign-up.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { ProfileSettingsComponent } from './user/profile-settings/profile-settings.component';
 import { MainGuardGuard } from './guards/main-guard.guard';
+import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 
 
 
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'session/sing-up', component: SignUpComponent, canActivate: [SecurityGuardGuard] },
   { path: 'session/forgot-password', component: ForgotPasswordComponent, canActivate: [SecurityGuardGuard] },
   { path: 'user/profile/settings/:id', component: ProfileSettingsComponent, canActivate: [LoggedGuardGuard] },
+  { path: 'user/shopping-cart', component: ShoppingCartComponent, canActivate: [LoggedGuardGuard] },
   { path: 'not-found', component: NoFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];

@@ -14,6 +14,8 @@
 
 a {
     color: #56B38F;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 a:hover {
@@ -86,6 +88,13 @@ a:hover {
 
 /*------------------------------------*/
 
+.nav-link.cart {
+    font-size: 1.2em;
+    padding-right: 1px;
+    padding-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
 .fa-solid {
     margin-top: 10px;
     color: #56B38F;
@@ -126,6 +135,14 @@ a:hover {
         width: 100%;
         border-radius: 10px;
         box-shadow: inset 0 0 0 1px #e6e6e6;
+    }
+
+    .nav-link.cart {
+        font-size: 1.2em;
+        display: inline-block;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        transition: all 0.3s ease;
     }
 }
 

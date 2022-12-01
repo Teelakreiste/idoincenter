@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, TitleStrategy } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -11,7 +11,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class AdminComponent implements OnInit {
   isAdmin: boolean = false;
-
+  title: String = 'WRITER';
   constructor(private router: Router,
     private firebaseService: FirebaseService,
     private authService: AuthService) {
@@ -39,9 +39,14 @@ export class AdminComponent implements OnInit {
         role.forEach(element => {
           if (element === 'admin') {
             this.isAdmin = true;
+            this.title = 'ADMINISTRATION'
           }
         });
       }
     });
+  }
+
+  back() {
+    this.router.navigate(['/']);
   }
 }

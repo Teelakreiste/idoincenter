@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   user: String = '';
   imgProfile: String = '';
   private userId: string = '';
+  title: String = 'Management';
 
   constructor(private authService: AuthService,
     private firebaseService: FirebaseService,
@@ -49,6 +50,7 @@ export class HeaderComponent implements OnInit {
         role.forEach(element => {
           if (element === 'admin') {
             this.isAdmin = true;
+            this.title = 'Administration'
           }
           if (element === 'write') {
             this.isWriter = true;
@@ -67,6 +69,12 @@ export class HeaderComponent implements OnInit {
   goToAdmin() {
     if (this.isAdmin || this.isWriter) {
       this.router.navigate(['/panel/admin']);
+    }
+  }
+
+  goToCart() {
+    if (this.stateLogin) {
+      this.router.navigate(['/user/shopping-cart']);
     }
   }
 

@@ -1,16 +1,17 @@
 <app-header></app-header>
-<hr id="none">
-<div class="container bg-white rounded-5 shadow-5-strong p-4">
-<h3>ADMINISTRATION PANEL</h3>
+<!-- <hr id="none"> -->
+<a (click)="back()" class="back"><i class="fa-solid fa-arrow-left"></i> Back</a>
+<!-- <div class="container bg-white rounded-5 shadow-5-strong p-4"> -->
+<h3>{{title}} PANEL</h3>
 <hr>
 <app-show-category></app-show-category>
 <hr>
 <app-show-manufacturers></app-show-manufacturers>
 <hr>
 <app-show-products></app-show-products>
-<hr>
+<hr *ngIf="isAdmin">
 <div *ngIf="isAdmin">
     <app-show-users></app-show-users>
 </div>
-</div>
+<!-- </div> -->
 <app-footer></app-footer>

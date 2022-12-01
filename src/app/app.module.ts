@@ -39,6 +39,7 @@ import { ForgotPasswordComponent } from './session/forgot-password/forgot-passwo
 import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { ProfileSettingsComponent } from './user/profile-settings/profile-settings.component';
 import { ShowUsersComponent } from './panel/users/show-users/show-users.component';
+import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { ShowUsersComponent } from './panel/users/show-users/show-users.componen
     ForgotPasswordComponent,
     UpdateUserComponent,
     ProfileSettingsComponent,
-    ShowUsersComponent
+    ShowUsersComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,

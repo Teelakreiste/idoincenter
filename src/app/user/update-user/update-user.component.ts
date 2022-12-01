@@ -166,7 +166,7 @@ export class UpdateUserComponent implements OnInit {
   resetForm() {
     this.alertsService.messageWithImage('Success', 'Account created successfully', '../../../assets/images/undraw_awesome_rlvy.svg', false, 1000);
     this.profileForm.reset();
-    this.router.navigate(['/session/sing-in']);
+    this.router.navigate(['/panel/admin/']);
   }
 
   toggleFieldTextType() {

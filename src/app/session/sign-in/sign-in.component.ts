@@ -43,7 +43,7 @@ export class SignInComponent implements OnInit {
         // console.log(decodedToken['password']);
         this.authService.isLogged().then((user) => {
           if (user) {
-            localStorage.setItem('token', JSON.stringify(user));
+            localStorage.setItem('token', user.uid);
           } else {
             localStorage.removeItem('token');
           }

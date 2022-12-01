@@ -19,8 +19,6 @@ export class MainGuardGuard implements CanActivate {
     this.authService.stateUser().subscribe(user => {
       if (user) {
         this.getDatosUser(user.uid);
-      } else {
-        this.router.navigate(['/']);
       }
     });
   }
@@ -49,9 +47,7 @@ export class MainGuardGuard implements CanActivate {
         this.readAccess = true;
       }
     }
-    if (!this.writeAccess) {
-      this.router.navigate(['/']);
-    }else if (!this.readAccess && this.writeAccess) {
+    if (!this.readAccess && this.writeAccess) {
       this.router.navigate(['/panel/admin/']);
     }
   }

@@ -45,7 +45,7 @@
                     <label class="form-label" for="category">Category</label>
                     <select class="form-control" formControlName="category">
                         <option value="" selected>Select Category</option>
-                        <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+                        <option *ngFor="let category of categories" [value]="category.name" [disabled]="!category.status">{{category.name}}</option>
                     </select>
 
                     <div class="alert-danger" *ngIf="category.invalid && (category.dirty || category.touched)">
@@ -59,7 +59,7 @@
                     <label class="form-label" for="manufacturer">Manufacturer</label>
                     <select class="form-control" formControlName="manufacturer">
                         <option value="" selected>Select Manufacturer</option>
-                        <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.name">{{manufacturer.name}}</option>
+                        <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.name" [disabled]="!manufacturer.status">{{manufacturer.name}}</option>
                     </select>
 
                     <div class="alert-danger" *ngIf="manufacturer.invalid && (manufacturer.dirty || manufacturer.touched)">

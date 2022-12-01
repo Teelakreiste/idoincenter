@@ -13,3 +13,19 @@ h3 {
 	background-color: transparent;
 	border: none;
 }
+
+a:hover {
+	cursor: pointer;
+}
+
+.fa-solid {
+    padding-top: 30px;
+    padding-left: 30px;
+    color: #275987;
+    margin: 0 10px;
+}
+
+.fa-solid:hover {
+    color: #9FBACE;
+    cursor: pointer;
+}

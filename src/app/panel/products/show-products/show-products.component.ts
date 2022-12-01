@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { ImageService } from 'src/app/services/image.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -22,15 +25,43 @@ export class ShowProductsComponent implements OnInit {
   element: number;
   navigation: boolean;
   products: Product[];
+  isAdmin: boolean = false;
 
   constructor(private router: Router,
+    private authService: AuthService,
+    private firebaseService: FirebaseService,
     private imageService: ImageService,
     private productService: ProductService) {
-      this.calcElemntWidth();
+    this.isAdmin = false;
+    this.user();
+    this.calcElemntWidth();
   }
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  user() {
+    this.authService.stateUser().subscribe(user => {
+      if (user) {
+        this.getDatosUser(user.uid);
+      }
+    });
+  }
+
+  getDatosUser(uid: string) {
+    const path = 'users';
+    const id = uid;
+    this.firebaseService.getDocumentById<User>(path, id).subscribe(data => {
+      if (data) {
+        const role = data.role;
+        role.forEach(element => {
+          if (element === 'admin') {
+            this.isAdmin = true;
+          }
+        });
+      }
+    });
   }
 
   getProducts() {

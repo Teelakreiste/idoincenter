@@ -1,0 +1,124 @@
+<app-header></app-header>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <span class="pull-right">(<strong>{{amountProductCart}}</strong>) items</span>
+                        <h5>Items in your cart</h5>
+                    </div>
+                    <div class="ibox-content" *ngFor="let list of productList">
+                        <div class="table-responsive">
+                            <table class="table shoping-cart-table">
+                                <tbody>
+                                    <tr>
+                                        <td width="90">
+                                            <div class="cart-product-imitation">
+                                                <img appBrokenImg src="{{list.product.image}}" alt="" width="100%">
+                                            </div>
+                                        </td>
+                                        <td class="desc">
+                                            <h3>
+                                                <a class="text-navy" (click)="viewProduct(list.id)">
+                                                    {{list.product.name}}
+                                                </a>
+                                            </h3>
+                                            <p class="small">
+                                                {{list.product.category}} - {{list.product.manufacturer}}
+                                            </p>
+                                            <dl class="small m-b-none">
+                                                <dt>Description</dt>
+                                                <dd>{{list.product.description}}</dd>
+                                            </dl>
+
+                                            <div class="m-t-sm">
+                                                <a (click)="removeProduct(list.id)" class="text"><i class="fa fa-trash"></i> Remove
+                                                    item</a>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            ${{list.product.price}}
+                                            <!-- <s class="small text-muted">$230,00</s> -->
+                                        </td>
+                                        <td width="65">
+                                            <input type="text" class="form-control qty" [(ngModel)]="list.quantity" readonly>
+                                        </td>
+                                        <td>
+                                            <h4>
+                                                ${{list.total}}
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="ibox-content">
+                        <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i>
+                            Checkout</button>
+                        <button class="btn btn-white" (click)="back()"><i class="fa fa-arrow-left"></i> Continue
+                            shopping</button>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Cart Summary</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <span>
+                            Total
+                        </span>
+                        <h2 class="font-bold">
+                            ${{totalPrice}}
+                        </h2>
+
+                        <hr>
+                        <div class="m-t-sm">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i>
+                                    Checkout</a>
+                                <a href="#" class="btn btn-white btn-sm"><i class="fa fa-times"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="cart-accordion">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="accordion-heading font-weight-semibold"><a href="#promocode" role="button"
+                                    data-toggle="collapse" aria-expanded="true" aria-controls="promocode">Apply
+                                    promo code<span class="accordion-indicator"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-chevron-up">
+                                            <polyline points="18 15 12 9 6 15"></polyline>
+                                        </svg></span></a></h3>
+                        </div>
+                        <div class="collapse show" id="promocode" data-parent="#cart-accordion">
+                            <div class="card-body">
+                                <form class="needs-validation" novalidate="">
+                                    <div class="form-group">
+                                        <input class="form-control promo" type="text" id="cart-promocode"
+                                            placeholder="Promo code" required="">
+                                        <div class="invalid-feedback">Please provide a valid promo code!</div>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-block" type="submit">Apply promo
+                                        code</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
