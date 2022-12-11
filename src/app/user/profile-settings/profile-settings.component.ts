@@ -54,10 +54,10 @@ export class ProfileSettingsComponent implements OnInit {
 
   async ngOnInit() {
     this.getCurrentUser();
-    this.getDatosUser(this.getId());
+    this.getUserData(this.getId());
   }
 
-  getDatosUser(uid: string) {
+  getUserData(uid: string) {
     const path = 'users';
     const id = uid;
     this.firebaseService.getDocumentById<User>(path, id).subscribe(data => {
@@ -86,9 +86,9 @@ export class ProfileSettingsComponent implements OnInit {
 
   createPwForm() {
     return this.formBuilder.group({
-      oldPassword: new FormControl('', [Validators.required, Validators.pattern(this.passwordPattern)]),
+      oldPassword: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.pattern(this.passwordPattern)]),
-      password2: new FormControl('', [Validators.required, Validators.pattern(this.passwordPattern)]),
+      password2: new FormControl('', [Validators.required]),
     },
       {
         validators: this.mustMatch('password', 'password2')

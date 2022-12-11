@@ -1,17 +1,31 @@
-<app-header></app-header>
-<!-- <hr id="none"> -->
-<a (click)="back()" class="back"><i class="fa-solid fa-arrow-left"></i> Back</a>
-<!-- <div class="container bg-white rounded-5 shadow-5-strong p-4"> -->
-<h3>{{title}} PANEL</h3>
-<hr>
-<app-show-category></app-show-category>
-<hr>
-<app-show-manufacturers></app-show-manufacturers>
-<hr>
-<app-show-products></app-show-products>
-<hr *ngIf="isAdmin">
-<div *ngIf="isAdmin">
-    <app-show-users></app-show-users>
+<div class="minimal">
+    <app-header></app-header>
+    <!-- <hr id="none"> -->
+    <div class="container">
+        <a (click)="back()" class="btn back"><i class="fa-solid fa-arrow-left"></i> Back</a>
+        
+        <h3>{{title}} PANEL</h3>
+        <!-- Alinear etiqueta a la izquierda con h3 centrado -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <app-show-category></app-show-category>
+                </div>
+                <div class="col-md-6">
+                    <app-show-manufacturers></app-show-manufacturers>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- <app-show-category></app-show-category>
+        <hr>
+        <app-show-manufacturers></app-show-manufacturers>
+        <hr> -->
+        <app-show-products></app-show-products>
+        <hr *ngIf="isAdmin">
+        <div *ngIf="isAdmin">
+            <app-show-users></app-show-users>
+        </div>
+    </div>
+    <app-footer></app-footer>
 </div>
-<!-- </div> -->
-<app-footer></app-footer>

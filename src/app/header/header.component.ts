@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CompanyI } from '../models/company.model';
 import { User } from '../models/user.model';
 import { AuthService } from '../services/auth.service';
 import { FirebaseService } from '../services/firebase.service';
@@ -18,6 +19,26 @@ export class HeaderComponent implements OnInit {
   imgProfile: String = '';
   private userId: string = '';
   title: String = 'Management';
+  qtyCart: number = 0;
+
+  companyInfo: CompanyI = {
+    uid: null,
+    name: null,
+    description: null,
+    logo: null,
+    email: null,
+    address: null,
+    country: null,
+    city: null,
+    state: null,
+    zip: null,
+    phone: null,
+    fax: null,
+    website: null,
+    facebook: null,
+    twitter: null,
+    instagram: null
+  }
 
   constructor(private authService: AuthService,
     private firebaseService: FirebaseService,
@@ -29,6 +50,7 @@ export class HeaderComponent implements OnInit {
         this.stateLogin = true;
         this.userId = user.uid;
         this.getDatosUser(user.uid);
+        this.getCartList(user.uid);
       } else {
         this.user = 'Not logged in';
         this.stateLogin = false;
@@ -37,6 +59,22 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCompanyInfo();
+  }
+
+  getCompanyInfo() {
+    const path = 'companyInfo';
+    const uid = 'iuO7xPy64jtjCBBFfeM1'
+    this.firebaseService.getDocumentById<CompanyI>(path, uid).subscribe(data => {
+      if (data) {
+        this.companyInfo = data;
+      } else {
+        const resp = this.firebaseService.createDocument(this.companyInfo, path, uid);
+        if (resp) {
+          console.log('Company info created');
+        }
+      }
+    });
   }
 
   getDatosUser(uid: string) {
@@ -60,6 +98,12 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  getCartList(uid: string) {
+    this.firebaseService.getCollection('carts').subscribe(carts => {
+      this.qtyCart = carts.filter((cart: any) => cart.uid === uid).length;
+    });
+  }
+
   goToProfile() {
     if (this.stateLogin) {
       this.router.navigate(['user/profile/settings/' + this.userId]);
@@ -69,6 +113,12 @@ export class HeaderComponent implements OnInit {
   goToAdmin() {
     if (this.isAdmin || this.isWriter) {
       this.router.navigate(['/panel/admin']);
+    }
+  }
+
+  goToCompanyInfo() {
+    if (this.isAdmin) {
+      this.router.navigate(['/panel/admin/company/info']);
     }
   }
 

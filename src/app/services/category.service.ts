@@ -27,4 +27,9 @@ export class CategoryService {
   async deleteCategory(id: string) {
     return await this.angularFirestore.collection('categories').doc(id).delete();
   }
+
+
+  searchCategory(searchText: string) {
+    return this.angularFirestore.collection('categories', ref => ref.where('name', '>=', searchText).where('name', '<=', searchText + '\uf8ff')).snapshotChanges();
+  }
 }

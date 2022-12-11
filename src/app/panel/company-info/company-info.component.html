@@ -1,0 +1,162 @@
+<div class="minimal">
+    <app-header></app-header>
+    <div class="container">
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 d-none d-md-block">
+                <div class="card">
+                    <div class="card-body">
+                        <a (click)="back()" class="nav-item nav-link has-icon nav-link-faded back"><i
+                                class="fa-solid fa-arrow-left"></i> Back</a>
+                        <nav class="nav flex-column nav-pills nav-gap-y-1">
+                            <a href="#profile" data-toggle="tab"
+                                class="nav-item nav-link has-icon nav-link-faded active">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-user mr-2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg> Company Information
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header border-bottom mb-3 d-flex d-md-none">
+                        <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+                            <li class="nav-item">
+                                <a href="#profile" data-toggle="tab" class="nav-link has-icon active"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-user">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body tab-content">
+                        <div class="tab-pane active" id="profile">
+                            <h6>YOUR COMPANY INFORMATION</h6>
+                            <hr>
+                            <form class="form" [formGroup]="companyInfoForm" (ngSubmit)="submitForm()">
+                                <div class="form-group">
+                                    <label for="inputName" class="form-label">Company Name</label>
+                                    <input formControlName="name" type="text" class="form-control" id="inputName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName" class="form-label">Company Description</label>
+                                    <textarea formControlName="description" class="form-control"
+                                        id="exampleFormControlTextarea1" rows="5"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="image"></label>
+                                    <div class="text-center">
+                                        <img appBrokenImg
+                                            [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'"
+                                            class="img-file" [src]="imgSrc" (click)="fileUploader.click()">
+                                    </div>
+                                    <input type="file" accept="image/*" class="form-control" #fileUploader
+                                        formControlName="logo" (change)="showPreview($event)">
+                                    <div class="alert-danger" *ngIf="logo.invalid && (logo.dirty || logo.touched)">
+                                        <div class="container-error-message" *ngIf="logo.errors?.['required']">
+                                            Image is required
+                                        </div>
+                                    </div>
+                                    <small id="fullNameHelp" class="form-text text-muted">Your name may appear around
+                                        here
+                                        where you are mentioned. You can change or remove it at any time.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName" class="form-label">Company Email</label>
+                                    <input formControlName="email" type="email" class="form-control" id="inputName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName" class="form-label">Company Address</label>
+                                    <textarea formControlName="address" class="form-control"
+                                        id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="inputName" class="form-label">Country</label>
+                                            <input formControlName="country" type="text" class="form-control"
+                                                id="inputName">
+                                        </div>
+                                        <div class="col">
+                                            <label for="inputName" class="form-label">City</label>
+                                            <input formControlName="city" type="text" class="form-control"
+                                                id="inputName">
+                                        </div>
+                                        <div class="col">
+                                            <label for="inputName" class="form-label">State</label>
+                                            <input formControlName="state" type="text" class="form-control"
+                                                id="inputName">
+                                        </div>
+                                        <div class="col">
+                                            <label for="inputName" class="form-label">Zip</label>
+                                            <input formControlName="zip" type="text" class="form-control"
+                                                id="inputName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="inputName" class="form-label">Phone</label>
+                                            <input formControlName="phone" type="text" class="form-control"
+                                                id="inputName">
+                                        </div>
+                                        <div class="col">
+                                            <label for="inputName" class="form-label">Fax</label>
+                                            <input formControlName="fax" type="text" class="form-control"
+                                                id="inputName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName" class="form-label">Website</label>
+                                    <input formControlName="website" type="text" class="form-control" id="inputName">
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="inputName" class="form-label">Facebook</label>
+                                            <input formControlName="facebook" type="text" class="form-control"
+                                                id="inputName">
+                                        </div>
+                                        <div class="col">
+                                            <label for="inputName" class="form-label">Twitter</label>
+                                            <input formControlName="twitter" type="text" class="form-control"
+                                                id="inputName">
+                                        </div>
+                                        <div class="col">
+                                            <label for="inputName" class="form-label">Instagram</label>
+                                            <input formControlName="instagram" type="text" class="form-control"
+                                                id="inputName">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group small text-muted">
+                                    All of the fields on this page are optional and can be deleted at any time, and by
+                                    filling them out, you're giving us consent to share this data wherever your user
+                                    profile
+                                    appears.
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Info</button>
+                                <button type="button" class="btn btn-light" (click)="resetForm()">Reset Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <app-footer></app-footer>
+</div>

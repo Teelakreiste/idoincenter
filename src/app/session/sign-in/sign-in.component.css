@@ -23,7 +23,7 @@ h2 {
 }
 
 a {
-    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	text-decoration: none;
 	color: #999;
 }
@@ -104,7 +104,7 @@ a:hover {
 	display: block;
 	cursor: pointer;
 	transition: .3s;
-    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	text-align: center;
 }
 

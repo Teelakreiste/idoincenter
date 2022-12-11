@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="/"><img src="../../assets/logo/home-control-24.png" alt=""> IDOINCENTER</a>
+        <a class="navbar-brand" href="/"><img appBrokenImg="../../assets/logo/home-control-24.png" [src]="companyInfo.logo" alt="" class="logo"> {{companyInfo.name.toLocaleUpperCase()}}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -15,14 +15,18 @@
                 </form> -->
             </div>
             <div class="nav-item">
-                <a *ngIf="stateLogin" class="nav-link cart" (click)="goToCart()"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a *ngIf="stateLogin" class="nav-link cart" (click)="goToCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span *ngIf="stateLogin && qtyCart > 0" class="badge bg-danger">{{qtyCart}}</span>
+                </a>
             </div>
             <div class="nav-item dropdown-mb">
                 <a class="nav-link" href="" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <span class="user">{{user}}
-                        <img *ngIf="!stateLogin" appBrokenImg [defaultImage]="'../../assets/images/undraw_profile_pic_re_tdyo.svg'"
-                            class="img-profile" [src]="imgProfile" alt="">
+                        <img *ngIf="!stateLogin" appBrokenImg
+                            [defaultImage]="'../../assets/images/undraw_profile_pic_re_tdyo.svg'" class="img-profile"
+                            [src]="imgProfile" alt="">
                     </span>
                 </a>
                 <div *ngIf="stateLogin" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -40,12 +44,14 @@
             <a class="nav-link" href="" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <span class="user">{{user}}
-                    <img *ngIf="!stateLogin" appBrokenImg [defaultImage]="'../../assets/images/undraw_profile_pic_re_tdyo.svg'"
-                        class="img-profile" [src]="imgProfile" alt="">
+                    <img *ngIf="!stateLogin" appBrokenImg
+                        [defaultImage]="'../../assets/images/undraw_profile_pic_re_tdyo.svg'" class="img-profile"
+                        [src]="imgProfile" alt="">
                 </span>
             </a>
             <div *ngIf="stateLogin" class="dropdown-menu dp" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" (click)="goToProfile()">Profile</a>
+                <a *ngIf="isAdmin" class="dropdown-item" (click)="goToCompanyInfo()">Company</a>
                 <a *ngIf="isAdmin || isWriter" class="dropdown-item" (click)="goToAdmin()">{{title}}</a>
                 <a class="dropdown-item" (click)="signOut()">Logout</a>
             </div>

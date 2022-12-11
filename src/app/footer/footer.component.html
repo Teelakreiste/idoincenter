@@ -1,15 +1,109 @@
 <div class="container-fluid">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">Powered by<a href="/" class="ms-2 me-2">IDOINCENTER</a>© 2022 IDOIN, Inc</p>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top footer-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                    <h2 class="footer-heading">{{companyInfo.name.toUpperCase()}}</h2>
+                    <p>{{companyInfo.description}}</p>
+                    <ul class="ftco-footer-social p-0">
+                        <li class="ftco-animate">
+                            <a [href]="companyInfo.twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                                <span class="fa-brands fa-twitter"></span>
+                            </a>
+                        </li>
+                        <li class="ftco-animate">
+                            <a [href]="companyInfo.facebook" data-toggle="tooltip" data-placement="top"
+                                title="Facebook">
+                                <span class="fa-brands fa-facebook"></span>
+                            </a>
+                        </li>
+                        <li class="ftco-animate">
+                            <a [href]="companyInfo.instagram" data-toggle="tooltip" data-placement="top"
+                                title="Instagram">
+                                <span class="fa-brands fa-instagram"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-12 col-lg-6 pl-lg-5 mb-4 mb-md-0">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2 class="footer-heading">Services</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="py-1 d-block">Ecommerce</a></li>
+                                <li><a href="#" class="py-1 d-block">Homecenter</a></li>
+                                <li><a href="#" class="py-1 d-block">Marketplace</a></li>
+                                <li><a href="#" class="py-1 d-block">Retail</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="footer-heading">About</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="py-1 d-block">Team</a></li>
+                                <li><a href="#" class="py-1 d-block">History</a></li>
+                                <li><a href="#" class="py-1 d-block">Investor</a></li>
+                                <li><a href="#" class="py-1 d-block">Terms Of Service</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="footer-heading">Help</h2>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="py-1 d-block">Support Center</a></li>
+                                <li><a href="#" class="py-1 d-block">Privacy</a></li>
+                                <li><a href="#" class="py-1 d-block">Terms</a></li>
+                                <li><a href="#" class="py-1 d-block">Submit A Ticket</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-        <a href="/"
-            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img appBrokenImg [defaultImage]="''" src="../../assets/logo/home-control-32.png" class="bi me-2" alt="">
-        </a>
-        <div class="nav col-md-4 justify-content-end">
-            Developed by <a href="https://github.com/Teelakreiste" class="ms-2 me-2">Teelakreiste</a>, 
-            <a href="https://github.com/KarenMercado" class="ms-2 me-2">Karen Mercado</a>
-            & <a href="https://github.com/12valencia" class="ms-2 me-2">Valentina Valencia</a>
+                <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                    <h2 class="footer-heading">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li>
+                                <span class="fa-solid fa-location-dot icon-contact">
+                                </span>
+                                <span class="text">
+                                    {{companyInfo.address}}, {{companyInfo.zip}},
+                                    {{companyInfo.city}} - {{companyInfo.state}}, {{companyInfo.country}}.
+                                </span>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa-solid fa-phone icon-contact">
+
+                                    </span>
+                                    <span class="text">
+                                        {{companyInfo.phone}}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa-solid fa-paper-plane icon-contact">
+                                    </span>
+                                    <span class="text">{{companyInfo.email}}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                    <p class="copyright">
+                        <span class="col-md-4 mb-0 text-muted">Powered by<a href="/"
+                                class="ms-2 me-2">{{companyInfo.name.toUpperCase()}}</a>Copyright &copy;
+                            2022
+                            IDOIN, Inc</span> | Developed by <a href="https://github.com/Teelakreiste"
+                            class="ms-2 me-2">Teelakreiste</a> -
+                        <a href="https://github.com/KarenMercado" class="ms-2 me-2">Karen Mercado</a>
+                        & <a href="https://github.com/12valencia" class="ms-2 me-2">Valentina Valencia</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 </div>

@@ -1,8 +1,21 @@
+<!-- search  -->
+<div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-6">
+            <div class="form">
+                <i class="fa fa-search"></i>
+                <input type="text" class="form-control form-input" [(ngModel)]="searchText" (ngModelChange)="valueChange($event)" placeholder="Search products...">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- search  -->
 <h4>ALL PRODUCTS</h4>
 <swiper [slidesPerView]="element" [spaceBetween]="15" [navigation]="navigation" [loop]="false" [autoplay]="true">
     <ng-template class="div-slide" swiperSlide *ngFor="let product of products">
         <div class="card">
-            <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'" class="card-img-top" [src]="product.image">
+            <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'" class="card-img-top"
+                [src]="product.image">
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p id="c-text" class="card-text">Brand: <strong>{{product.manufacturer}}</strong>.</p>

@@ -27,5 +27,9 @@ export class ManufacturerService {
   async deleteManufacturer(id: string) {
     return await this.angularFirestore.collection('manufacturers').doc(id).delete();
   }
+
+  searchManufacturer(searchText: string) {
+    return this.angularFirestore.collection('manufacturers', ref => ref.where('name', '>=', searchText).where('name', '<=', searchText + '\uf8ff')).snapshotChanges();
+  }
   
 }

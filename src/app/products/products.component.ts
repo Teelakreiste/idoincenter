@@ -22,6 +22,8 @@ export class ProductsComponent implements OnInit {
   element: number;
   navigation: boolean;
 
+  searchText: string = '';
+
   constructor(private router: Router,
     private productService: ProductService) {
     this.calcElemntWidth();
@@ -40,6 +42,52 @@ export class ProductsComponent implements OnInit {
         }
       })
     });
+  }
+
+  searchProduct(searchText: string) {
+    this.productService.searchProducts(searchText).subscribe(product => {
+      this.products = product.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as Product
+        }
+      })
+
+      if (this.products.length == 0) {
+        this.productService.searchProductsManufacturer(searchText).subscribe(product => {
+          this.products = product.map(e => {
+            return {
+              id: e.payload.doc.id,
+              ...e.payload.doc.data() as Product
+            }
+          })
+    
+          if (this.products.length == 0) {
+            this.productService.searchProductsCategory(searchText).subscribe(product => {
+              this.products = product.map(e => {
+                return {
+                  id: e.payload.doc.id,
+                  ...e.payload.doc.data() as Product
+                }
+              })
+
+              if (this.products.length == 0) {
+                this.getProducts();
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+
+  valueChange($event) {
+    this.searchText = $event;
+    if (this.searchText == '') {
+      this.getProducts();
+    } else {
+      this.searchProduct(this.searchText);
+    }
   }
 
   viewInfo(id: string) {

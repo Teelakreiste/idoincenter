@@ -116,6 +116,8 @@ a:hover {
 .form-label {
 	color: #45a580;
 	transition: .3s;
+    margin: 0;
+    margin-top: 10px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -128,8 +130,7 @@ a:hover {
 	font-size: 16px;
 	box-shadow: 1px 1px 5px #56B38F;
 	border: 2px solid transparent;
-	border-radius: 15px;
-	line-height: 40px;
+	border-radius: 12px;
 	padding: 0 30px 0 10px;
 	transition: .3s ease all;
 	color: #928c8c;

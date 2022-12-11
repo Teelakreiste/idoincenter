@@ -20,6 +20,7 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { ProfileSettingsComponent } from './user/profile-settings/profile-settings.component';
 import { MainGuardGuard } from './guards/main-guard.guard';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
+import { CompanyInfoComponent } from './panel/company-info/company-info.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'panel/admin/products/edit/:id', component: EditProductComponent, canActivate: [AdminGuardGuard] },
   { path: 'panel/admin/users/add', component: UpdateUserComponent, canActivate: [AdminGuardGuard] },
   { path: 'panel/admin/users/edit/:id', component: ProfileSettingsComponent, canActivate: [AdminGuardGuard] },
+  { path: 'panel/admin/company/info', component: CompanyInfoComponent, canActivate: [AdminGuardGuard]},
   { path: 'session/sing-in', component: SignInComponent, canActivate: [SecurityGuardGuard] },
   { path: 'session/sing-up', component: SignUpComponent, canActivate: [SecurityGuardGuard] },
   { path: 'session/forgot-password', component: ForgotPasswordComponent, canActivate: [SecurityGuardGuard] },

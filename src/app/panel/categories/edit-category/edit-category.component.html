@@ -1,44 +1,48 @@
-<app-header></app-header>
-<div class="container bg-white rounded-5 shadow-5-strong p-5">
-    <a (click)="back()"><i class="fa-solid fa-arrow-left"></i></a>
-    <h1>EDIT CATEGORY</h1>
-    <div class="row justify-content-center">
-        <div class="header">
-        </div>
-        <div class="col-md-6">
-            <form [formGroup]="editCategoryForm" (ngSubmit)="submit()">
-                <div class="form-group">
-                    <label class="form-label" for="name">Name</label>
-                    <input type="text" class="form-control" formControlName="name" />
-                    <div class="alert-danger" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
-                        <div class="container-error-message" *ngIf="name?.errors?.['required']">
-                            Name is required
+<div class="minimal">
+    <app-header></app-header>
+    <div class="container"> <!-- bg-white rounded-5 shadow-5-strong p-5 -->
+        <a (click)="back()"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1>EDIT CATEGORY</h1>
+        <div class="row justify-content-center">
+            <div class="header">
+            </div>
+            <div class="col-md-6">
+                <form [formGroup]="editCategoryForm" (ngSubmit)="submit()">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Name</label>
+                        <input type="text" class="form-control" formControlName="name" />
+                        <div class="alert-danger" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+                            <div class="container-error-message" *ngIf="name?.errors?.['required']">
+                                Name is required
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="description">Description</label>
-                    <textarea class="form-control" formControlName="description"></textarea>
-                    <div class="alert-danger" *ngIf="description?.invalid && (description?.dirty || description?.touched)">
-                        <div class="container-error-message" *ngIf="description?.errors?.['required']">
-                            Description is required
+                    <div class="form-group">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control" formControlName="description"></textarea>
+                        <div class="alert-danger"
+                            *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+                            <div class="container-error-message" *ngIf="description?.errors?.['required']">
+                                Description is required
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input form-label" type="checkbox" id="flexSwitchCheckChecked" formControlName="status" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked">Enable</label>
+                    <div class="form-group">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input form-label" type="checkbox" id="flexSwitchCheckChecked"
+                                formControlName="status" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Enable</label>
+                        </div>
                     </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary" [disabled]="!editCategoryForm.valid">Submit</button>
-            </form>
-        </div>
-        <div class="header">
+                    <button type="submit" class="btn btn-primary" [disabled]="!editCategoryForm.valid">Submit</button>
+                </form>
+            </div>
+            <div class="header">
+            </div>
         </div>
     </div>
+    <app-footer></app-footer>
 </div>
-<app-footer></app-footer>

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { flush } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { User } from 'src/app/models/user.model';
@@ -26,6 +27,7 @@ export class ShowProductsComponent implements OnInit {
   navigation: boolean;
   products: Product[];
   isAdmin: boolean = false;
+  searchText: string = '';
 
   constructor(private router: Router,
     private authService: AuthService,
@@ -73,6 +75,53 @@ export class ShowProductsComponent implements OnInit {
         }
       })
     });
+  }
+
+  searchProducts(searchText: string) {
+    this.productService.searchProducts(searchText).subscribe(product => {
+      this.products = product.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as Product
+        }
+      })
+
+      if (this.products.length === 0) {
+        this.productService.searchProductsCategory(searchText).subscribe(product => {
+          this.products = product.map(e => {
+            return {
+              id: e.payload.doc.id,
+              ...e.payload.doc.data() as Product
+            }
+          })
+
+          if (this.products.length === 0) {
+            this.productService.searchProductsManufacturer(searchText).subscribe(product => {
+              this.products = product.map(e => {
+                return {
+                  id: e.payload.doc.id,
+                  ...e.payload.doc.data() as Product
+                }
+              })
+
+              if (this.products.length === 0) {
+                this.getProducts();
+              }
+
+            });
+          }
+        });
+      }
+    });
+  }
+
+  valueChange(value: string) {
+    this.searchText = value;
+    if (this.searchText === '') {
+      this.getProducts();
+    } else {
+      this.searchProducts(this.searchText);
+    }
   }
 
   addProduct() {

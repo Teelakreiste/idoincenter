@@ -24,6 +24,7 @@ export class ShowManufacturersComponent implements OnInit {
   navigation: boolean;
   manufacturers: Manufacturer[];
   isAdmin: boolean = false;
+  searchText: string = '';
 
   constructor(private router: Router,
     private authService: AuthService,
@@ -72,6 +73,30 @@ export class ShowManufacturersComponent implements OnInit {
     });
   }
 
+  searchManufacturer(searchText: string) {
+    this.manufacturerService.searchManufacturer(searchText).subscribe(manufacturer => {
+      this.manufacturers = manufacturer.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as Manufacturer
+        }
+      })
+
+      if (this.manufacturers.length === 0) {
+        this.getManufacturers();
+      }
+    });
+  }
+
+  valueChange(value: string) {
+    this.searchText = value;
+    if (this.searchText === '') {
+      this.getManufacturers();
+    } else {
+      this.searchManufacturer(this.searchText);
+    }
+  }
+
   addManufacturer() {
     this.router.navigate(['/panel/admin/manufacturers/add']);
   }
@@ -104,20 +129,20 @@ export class ShowManufacturersComponent implements OnInit {
 
   calcElemntWidth() {
     this.width = document.body.clientWidth;
-    if (this.width < 400) {
+    if (this.width < 480) {
       this.element = 1.5;
       this.navigation = false;
     } else if (this.width < 600) {
       this.element = 2.5;
       this.navigation = false;
     } else if (this.width < 800) {
-      this.element = 3.5;
+      this.element = 1.5;
       this.navigation = false;
     } else if (this.width < 1000) {
-      this.element = 4.5;
+      this.element = 1.3;
       this.navigation = false;
     } else {
-      this.element = 5.3;
+      this.element = 2.3;
       this.navigation = true;
     }
   }

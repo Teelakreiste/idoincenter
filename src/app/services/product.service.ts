@@ -27,4 +27,16 @@ export class ProductService {
   async deleteProduct(id: string) {
     return await this.angularFirestore.collection('products').doc(id).delete();
   }
+
+  searchProducts(searchText: string) {
+    return this.angularFirestore.collection('products', ref => ref.where('name', '>=', searchText).where('name', '<=', searchText + '\uf8ff')).snapshotChanges();
+  }
+
+  searchProductsCategory(searchText: string) {
+    return this.angularFirestore.collection('products', ref => ref.where('category', '>=', searchText).where('category', '<=', searchText + '\uf8ff')).snapshotChanges();
+  }
+
+  searchProductsManufacturer(searchText: string) {
+    return this.angularFirestore.collection('products', ref => ref.where('manufacturer', '>=', searchText).where('manufacturer', '<=', searchText + '\uf8ff')).snapshotChanges();
+  }
 }

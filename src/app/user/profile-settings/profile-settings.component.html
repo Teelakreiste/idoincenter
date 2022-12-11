@@ -1,294 +1,296 @@
-<app-header></app-header>
-<div class="container">
-    <!-- /Breadcrumb -->
-
-    <div class="row gutters-sm">
-        <div class="col-md-4 d-none d-md-block">
-            <div class="card">
-                <div class="card-body">
-                    <a (click)="back()" class="back"><i class="fa-solid fa-arrow-left"></i> Back</a>
-                    <nav class="nav flex-column nav-pills nav-gap-y-1">
-                        <a href="#profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-user mr-2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg> Profile Information
-                        </a>
-                        <a href="#account" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-settings mr-2">
-                                <circle cx="12" cy="12" r="3"></circle>
-                                <path
-                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
-                                </path>
-                            </svg> Account Settings
-                        </a>
-                        <a href="#security" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shield mr-2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg> Security
-                        </a>
-                        <a href="#billing" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-credit-card mr-2">
-                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                                <line x1="1" y1="10" x2="23" y2="10"></line>
-                            </svg> Billing
-                        </a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header border-bottom mb-3 d-flex d-md-none">
-                    <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
-                        <li class="nav-item">
-                            <a href="#profile" data-toggle="tab" class="nav-link has-icon active"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+<div class="minimal">
+    <app-header></app-header>
+    <div class="container">
+        <!-- /Breadcrumb -->
+    
+        <div class="row gutters-sm">
+            <div class="col-md-4 d-none d-md-block">
+                <div class="card">
+                    <div class="card-body">
+                        <a (click)="back()" class="nav-item nav-link has-icon nav-link-faded back"><i class="fa-solid fa-arrow-left"></i> Back</a>
+                        <nav class="nav flex-column nav-pills nav-gap-y-1">
+                            <a href="#profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-user">
+                                    stroke-linejoin="round" class="feather feather-user mr-2">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
-                                </svg></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#account" data-toggle="tab" class="nav-link has-icon"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                </svg> Profile Information
+                            </a>
+                            <a href="#account" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-settings">
+                                    stroke-linejoin="round" class="feather feather-settings mr-2">
                                     <circle cx="12" cy="12" r="3"></circle>
                                     <path
                                         d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
                                     </path>
-                                </svg></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#security" data-toggle="tab" class="nav-link has-icon"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                </svg> Account Settings
+                            </a>
+                            <a href="#security" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shield">
+                                    stroke-linejoin="round" class="feather feather-shield mr-2">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#billing" data-toggle="tab" class="nav-link has-icon"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                </svg> Security
+                            </a>
+                            <a href="#billing" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-credit-card">
+                                    stroke-linejoin="round" class="feather feather-credit-card mr-2">
                                     <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                                     <line x1="1" y1="10" x2="23" y2="10"></line>
-                                </svg></a>
-                        </li>
-                    </ul>
+                                </svg> Billing
+                            </a>
+                        </nav>
+                    </div>
                 </div>
-                <div class="card-body tab-content">
-                    <div class="tab-pane active" id="profile">
-                        <h6>YOUR PROFILE INFORMATION</h6>
-                        <hr>
-                        <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-                            <div class="form-group">
-                                <div class="row">
-                                    <!-- First Name -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">First Name</label>
-                                        <input formControlName="firstName" type="text" class="form-control"
-                                            placeholder="" aria-label="First name" [readOnly]="isEdit">
-                                    </div>
-                                    <!-- Last name -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Last Name</label>
-                                        <input formControlName="lastName" type="text" class="form-control"
-                                            placeholder="" aria-label="Last name" [readOnly]="isEdit">
-                                    </div>
-                                </div>
-                                <small id="fullNameHelp" class="form-text text-muted">Your name may appear around here
-                                    where you are mentioned. You can change or remove it at any time.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputEmail4" class="form-label">Email</label>
-                                <input formControlName="email" type="email" class="form-control" readonly>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <!-- Phone number -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Phone number</label>
-                                        <input formControlName="phoneNum" type="text" class="form-control"
-                                            placeholder="" aria-label="Phone number" [readOnly]="isEdit">
-                                    </div>
-                                    <!-- Mobile number -->
-                                    <div class="col-md-6">
-                                        <label class="form-label">Mobile number</label>
-                                        <input formControlName="mobileNum" type="text" class="form-control"
-                                            placeholder="" aria-label="Phone number" [readOnly]="isEdit">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Birthday</label>
-                                <input formControlName="birthday" type="date" class="form-control" placeholder=""
-                                    aria-label="User name" [readOnly]="isEdit">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="image"></label>
-                                <div class="text-center">
-                                    <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'"
-                                        class="img-file" [src]="imgSrc" (click)="fileUploader.click()">
-                                </div>
-                                <input type="file" accept="image/*" class="form-control" #fileUploader
-                                    formControlName="photoURL" (change)="showPreview($event)">
-                                <div class="alert-danger"
-                                    *ngIf="photoURL.invalid && (photoURL.dirty || photoURL.touched)">
-                                    <div class="container-error-message" *ngIf="photoURL.errors?.['required']">
-                                        Image is required
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group small text-muted">
-                                All of the fields on this page are optional and can be deleted at any time, and by
-                                filling them out, you're giving us consent to share this data wherever your user profile
-                                appears.
-                            </div>
-                            <button type="submit" class="btn btn-primary">Update Profile</button>
-                            <button type="button" class="btn btn-light" (click)="reset()">Reset Changes</button>
-                        </form>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header border-bottom mb-3 d-flex d-md-none">
+                        <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+                            <li class="nav-item">
+                                <a href="#profile" data-toggle="tab" class="nav-link has-icon active"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-user">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#account" data-toggle="tab" class="nav-link has-icon"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-settings">
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <path
+                                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                        </path>
+                                    </svg></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#security" data-toggle="tab" class="nav-link has-icon"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-shield">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    </svg></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#billing" data-toggle="tab" class="nav-link has-icon"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-credit-card">
+                                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                                    </svg></a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="tab-pane" id="account">
-                        <h6>ACCOUNT SETTINGS</h6>
-                        <hr>
-                        <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-                            <div class="form-group">
-                                <!-- Username -->
-                                <label class="form-label">Username</label>
-                                <input formControlName="userName" type="text" class="form-control" placeholder=""
-                                    aria-label="User name" [readOnly]="isEdit">
-                                <small id="usernameHelp" class="form-text text-muted">After changing your username, your
-                                    old username becomes available for anyone else to claim.</small>
-                            </div>
-                            <hr *ngIf="isAdmin">
-                            <div class="form-group" *ngIf="isAdmin">
-                                <label class="d-block text-primary">Assign roles</label>
-                                <p class="text-muted font-size-sm">You can assign multiple roles to a user.</p>
-                                <div>
-                                    <div class="form-check form-check-inline">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input form-label" type="checkbox" id="flexSwitchCheckChecked1" formControlName="read" >
-                                            <label class="form-check-label" for="flexSwitchCheckChecked">Read</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input form-label" type="checkbox" id="flexSwitchCheckChecked2" formControlName="write" >
-                                            <label class="form-check-label" for="flexSwitchCheckChecked">Write</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="card-body tab-content">
+                        <div class="tab-pane active" id="profile">
+                            <h6>YOUR PROFILE INFORMATION</h6>
                             <hr>
-                            <div class="form-group">
-                                <label class="d-block text-danger">Delete Account</label>
-                                <p class="text-muted font-size-sm">Once you delete your account, there is no going back.
-                                    Please be certain.</p>
-                            </div>
-                            <button class="btn btn-danger" type="button" (click)="remove()">Delete Account</button>
-                        </form>
-                    </div>
-                    <div class="tab-pane" id="security">
-                        <h6>SECURITY SETTINGS</h6>
-                        <hr>
-                        <form class="form" [formGroup]="pwForm" (ngSubmit)="pwSubmit()">
-                            <div class="form-group">
-                                <label class="d-block">Change Password</label>
-                                <div *ngIf="isAdmin == false || isOwner == true">
-                                    <input formControlName="oldPassword" [type]="oldFieldTextType ? 'text' : 'password'"
-                                        class="form-control" placeholder="Enter your old password">
-                                    <span (click)="oldToggleFieldTextType()"
-                                        *ngIf="oldPassword.value != null && oldPassword.value != ''"
-                                        [class]="(!oldFieldTextType ?'field-icon fa-solid fa-eye':'field-icon fa-solid fa-eye-slash')">
-                                    </span>
-                                    <div class="alert-danger"
-                                        *ngIf="oldPassword.invalid && (oldPassword.dirty || oldPassword.touched)">
-                                        <div class="container-error-message" *ngIf="password.errors?.['required']">
-                                            Old Password is required
+                            <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <!-- First Name -->
+                                        <div class="col-md-6">
+                                            <label class="form-label">First Name</label>
+                                            <input formControlName="firstName" type="text" class="form-control"
+                                                placeholder="" aria-label="First name" [readOnly]="isEdit">
+                                        </div>
+                                        <!-- Last name -->
+                                        <div class="col-md-6">
+                                            <label class="form-label">Last Name</label>
+                                            <input formControlName="lastName" type="text" class="form-control"
+                                                placeholder="" aria-label="Last name" [readOnly]="isEdit">
+                                        </div>
+                                    </div>
+                                    <small id="fullNameHelp" class="form-text text-muted">Your name may appear around here
+                                        where you are mentioned. You can change or remove it at any time.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail4" class="form-label">Email</label>
+                                    <input formControlName="email" type="email" class="form-control" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <!-- Phone number -->
+                                        <div class="col-md-6">
+                                            <label class="form-label">Phone number</label>
+                                            <input formControlName="phoneNum" type="text" class="form-control"
+                                                placeholder="" aria-label="Phone number" [readOnly]="isEdit">
+                                        </div>
+                                        <!-- Mobile number -->
+                                        <div class="col-md-6">
+                                            <label class="form-label">Mobile number</label>
+                                            <input formControlName="mobileNum" type="text" class="form-control"
+                                                placeholder="" aria-label="Phone number" [readOnly]="isEdit">
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <input formControlName="password" [type]="fieldTextType ? 'text' : 'password'"
-                                        class="form-control mt-1" name="password" placeholder="New password">
-                                    <span (click)="toggleFieldTextType()"
-                                        *ngIf="password.value != null && password.value != ''"
-                                        [class]="(!fieldTextType ?'field-icon fa-solid fa-eye':'field-icon fa-solid fa-eye-slash')"></span>
+                                <div class="form-group">
+                                    <label class="form-label">Birthday</label>
+                                    <input formControlName="birthday" type="date" class="form-control" placeholder=""
+                                        aria-label="User name" [readOnly]="isEdit">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="image"></label>
+                                    <div class="text-center">
+                                        <img appBrokenImg [defaultImage]="'../../assets/images/undraw_images_re_0kll.svg'"
+                                            class="img-file" [src]="imgSrc" (click)="fileUploader.click()">
+                                    </div>
+                                    <input type="file" accept="image/*" class="form-control" #fileUploader
+                                        formControlName="photoURL" (change)="showPreview($event)">
                                     <div class="alert-danger"
-                                        *ngIf="password.invalid && (password.dirty || password.touched)">
-                                        <div class="container-error-message" *ngIf="password.errors?.['required']">
-                                            New Password is required
-                                        </div>
-                                        <div class="container-error-message"
-                                            *ngIf="password.errors?.['required'] || password.errors?.['minlength']">
-                                            Password must contain at least 8 characters.
-                                        </div>
-                                        <div class="container-error-message" *ngIf="password.errors?.['pattern']">
-                                            Password must contain one uppercase, one lowercase, one number and one
-                                            special character.
-                                        </div>
-                                        <div class="container-error-message" *ngIf="password.errors?.['maxlength']">
-                                            Password must contain a maximum of 20 characters.
+                                        *ngIf="photoURL.invalid && (photoURL.dirty || photoURL.touched)">
+                                        <div class="container-error-message" *ngIf="photoURL.errors?.['required']">
+                                            Image is required
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <input formControlName="password2"
-                                        [type]="repeatFieldTextType ? 'text' : 'password'" class="form-control mt-1"
-                                        name="password2" placeholder="Confirm new password">
-                                    <span (click)="repeatToggleFieldTextType()"
-                                        *ngIf="password2.value != null && password2.value != ''"
-                                        [class]="(!repeatFieldTextType ?'field-icon fa-solid fa-eye':'field-icon fa-solid fa-eye-slash')"></span>
-                                    <div class="alert-danger"
-                                        *ngIf="password2.invalid && (password2.dirty || password2.touched)">
-                                        <div class="container-error-message" *ngIf="password2.errors?.['required']">
-                                            Confirm Password is required
+                                <div class="form-group small text-muted">
+                                    All of the fields on this page are optional and can be deleted at any time, and by
+                                    filling them out, you're giving us consent to share this data wherever your user profile
+                                    appears.
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                                <button type="button" class="btn btn-light" (click)="reset()">Reset Changes</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="account">
+                            <h6>ACCOUNT SETTINGS</h6>
+                            <hr>
+                            <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                    <!-- Username -->
+                                    <label class="form-label">Username</label>
+                                    <input formControlName="userName" type="text" class="form-control" placeholder=""
+                                        aria-label="User name" [readOnly]="isEdit">
+                                    <small id="usernameHelp" class="form-text text-muted">After changing your username, your
+                                        old username becomes available for anyone else to claim.</small>
+                                </div>
+                                <hr *ngIf="isAdmin">
+                                <div class="form-group" *ngIf="isAdmin">
+                                    <label class="d-block text-primary">Assign roles</label>
+                                    <p class="text-muted font-size-sm">You can assign multiple roles to a user.</p>
+                                    <div>
+                                        <div class="form-check form-check-inline">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input form-label" type="checkbox" id="flexSwitchCheckChecked1" formControlName="read" >
+                                                <label class="form-check-label" for="flexSwitchCheckChecked">Read</label>
+                                            </div>
                                         </div>
-                                        <div class="container-error-message" *ngIf="password2.errors?.['mustMatch']">
-                                            Passwords do not match
+                                        <div class="form-check form-check-inline">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input form-label" type="checkbox" id="flexSwitchCheckChecked2" formControlName="write" >
+                                                <label class="form-check-label" for="flexSwitchCheckChecked">Write</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group small text-muted">
-                                All of the fields on this section are obligatory.
-                            </div>
-                            <button type="submit" class="btn btn-primary">Change Password</button>
-                            <button type="reset" class="btn btn-light">Reset fields</button>
-                        </form>
-                    </div>
-                    <div class="tab-pane" id="billing">
-                        <h6>BILLING SETTINGS</h6>
-                        <hr>
-                        <form>
-                            <div class="form-group">
-                                <label class="d-block mb-0">Payment Method</label>
-                                <div class="small text-muted mb-3">You have not added a payment method</div>
-                                <button class="btn btn-info" type="button">Add Payment Method</button>
-                            </div>
-                            <div class="form-group mb-0">
-                                <label class="d-block">Payment History</label>
-                                <div class="border border-gray-500 bg-gray-200 p-3 text-center font-size-sm">You have
-                                    not made any payment.</div>
-                            </div>
-                        </form>
+                                <hr>
+                                <div class="form-group">
+                                    <label class="d-block text-danger">Delete Account</label>
+                                    <p class="text-muted font-size-sm">Once you delete your account, there is no going back.
+                                        Please be certain.</p>
+                                </div>
+                                <button class="btn btn-danger" type="button" (click)="remove()">Delete Account</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="security">
+                            <h6>SECURITY SETTINGS</h6>
+                            <hr>
+                            <form class="form" [formGroup]="pwForm" (ngSubmit)="pwSubmit()">
+                                <div class="form-group">
+                                    <label class="d-block">Change Password</label>
+                                    <div *ngIf="isAdmin == false || isOwner == true">
+                                        <input formControlName="oldPassword" [type]="oldFieldTextType ? 'text' : 'password'"
+                                            class="form-control" placeholder="Enter your old password">
+                                        <span (click)="oldToggleFieldTextType()"
+                                            *ngIf="oldPassword.value != null && oldPassword.value != ''"
+                                            [class]="(!oldFieldTextType ?'field-icon fa-solid fa-eye':'field-icon fa-solid fa-eye-slash')">
+                                        </span>
+                                        <div class="alert-danger"
+                                            *ngIf="oldPassword.invalid && (oldPassword.dirty || oldPassword.touched)">
+                                            <div class="container-error-message" *ngIf="oldPassword.errors?.['required']">
+                                                Old Password is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input formControlName="password" [type]="fieldTextType ? 'text' : 'password'"
+                                            class="form-control mt-1" name="password" placeholder="New password">
+                                        <span (click)="toggleFieldTextType()"
+                                            *ngIf="password.value != null && password.value != ''"
+                                            [class]="(!fieldTextType ?'field-icon fa-solid fa-eye':'field-icon fa-solid fa-eye-slash')"></span>
+                                        <div class="alert-danger"
+                                            *ngIf="password.invalid && (password.dirty || password.touched)">
+                                            <div class="container-error-message" *ngIf="password.errors?.['required']">
+                                                New Password is required
+                                            </div>
+                                            <div class="container-error-message"
+                                                *ngIf="password.errors?.['required'] || password.errors?.['minlength']">
+                                                Password must contain at least 8 characters.
+                                            </div>
+                                            <div class="container-error-message" *ngIf="password.errors?.['pattern']">
+                                                Password must contain one uppercase, one lowercase, one number and one
+                                                special character.
+                                            </div>
+                                            <div class="container-error-message" *ngIf="password.errors?.['maxlength']">
+                                                Password must contain a maximum of 20 characters.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input formControlName="password2"
+                                            [type]="repeatFieldTextType ? 'text' : 'password'" class="form-control mt-1"
+                                            name="password2" placeholder="Confirm new password">
+                                        <span (click)="repeatToggleFieldTextType()"
+                                            *ngIf="password2.value != null && password2.value != ''"
+                                            [class]="(!repeatFieldTextType ?'field-icon fa-solid fa-eye':'field-icon fa-solid fa-eye-slash')"></span>
+                                        <div class="alert-danger"
+                                            *ngIf="password2.invalid && (password2.dirty || password2.touched)">
+                                            <div class="container-error-message" *ngIf="password2.errors?.['required']">
+                                                Confirm Password is required
+                                            </div>
+                                            <div class="container-error-message" *ngIf="password2.errors?.['mustMatch']">
+                                                Passwords do not match
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group small text-muted">
+                                    All of the fields on this section are obligatory.
+                                </div>
+                                <button type="submit" class="btn btn-primary">Change Password</button>
+                                <button type="reset" class="btn btn-light">Reset fields</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="billing">
+                            <h6>BILLING SETTINGS</h6>
+                            <hr>
+                            <form>
+                                <div class="form-group">
+                                    <label class="d-block mb-0">Payment Method</label>
+                                    <div class="small text-muted mb-3">You have not added a payment method</div>
+                                    <button class="btn btn-info" type="button">Add Payment Method</button>
+                                </div>
+                                <div class="form-group mb-0">
+                                    <label class="d-block">Payment History</label>
+                                    <div class="border border-gray-500 bg-gray-200 p-3 text-center font-size-sm">You have
+                                        not made any payment.</div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    
     </div>
-
+    <app-footer></app-footer>
 </div>
-<app-footer></app-footer>

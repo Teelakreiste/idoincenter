@@ -3,6 +3,21 @@
     <h4>Category management</h4>
     <p>In this section you can manage categories of your products, add new categories, edit existing ones and delete
         them.</p>
+
+    <!-- search  -->
+    <div class="container">
+        <div class="row height d-flex justify-content-center align-items-center">
+            <div class="col-md-6">
+                <div class="form">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control form-input" [(ngModel)]="searchText"
+                        (ngModelChange)="valueChange($event)" placeholder="Search categories...">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- search  -->
+
     <swiper [slidesPerView]="element" [spaceBetween]="15" [navigation]="navigation" [loop]="false" [autoplay]="true">
         <ng-template class="div-slide" swiperSlide>
             <div class="card card-add">

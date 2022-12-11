@@ -55,24 +55,27 @@
     margin-bottom: 8px !important;
 }
 
-.card-text strong{
+.card-text strong {
     color: #479677;
 }
 
-.swiper-button-next, .swiper-button-prev {
-    color: rgba(86, 179, 143,0.5);
+.swiper-button-next,
+.swiper-button-prev {
+    color: rgba(86, 179, 143, 0.5);
     background-color: rgba(255, 255, 255, 0.2);
     width: 45px;
     height: 45px;
     border-radius: 100%;
 }
 
-.swiper-button-next:hover, .swiper-button-prev:hover {
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
     color: #CCE2ED;
-    background: rgba(86, 179, 143,0.5);
+    background: rgba(86, 179, 143, 0.5);
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
+.swiper-button-next::after,
+.swiper-button-prev::after {
     font-size: 2em;
 }
 
@@ -195,4 +198,47 @@ h4 {
     padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+/* Search */
+
+.height {
+    margin-top: 20px;
+}
+
+.form {
+    position: relative;
+}
+
+.form .fa-search {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #9ca3af;
+}
+
+.form span {
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db;
+}
+
+.left-pan {
+    padding-left: 7px;
+}
+
+.left-pan i {
+    padding-left: 10px;
+}
+
+.form-input {
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.form-input:focus {
+    box-shadow: inset 0 0 0 2px #56b38f;
 }

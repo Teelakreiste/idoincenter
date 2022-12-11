@@ -1,3 +1,7 @@
+.container-inline {
+    display: flex;
+}
+
 h3 {
     margin-top: 0;
     color: #479677;
@@ -28,4 +32,36 @@ a:hover {
 .fa-solid:hover {
     color: #9FBACE;
     cursor: pointer;
+}
+
+.fa-solid.fa-arrow-left {
+    margin-top: 25px;
+    padding-top: 0;
+    padding-left: 0;
+    color: #275987;
+}
+
+.back {
+    width: 40px;
+    background: none;
+    border: 3px solid #275987;
+    color: #275987;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline;
+}
+
+.back:hover {
+    background: #275987;
+    color: #fff;
+    transition: .5s;
+}
+
+.back:hover > .fa-solid.fa-arrow-left {
+    color: #fff;
+}
+
+.btn.back {
+    margin: 0px auto 10px 10px;
+    padding: 10px 12px 8px 6px;
 }

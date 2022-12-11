@@ -40,6 +40,7 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { ProfileSettingsComponent } from './user/profile-settings/profile-settings.component';
 import { ShowUsersComponent } from './panel/users/show-users/show-users.component';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
+import { CompanyInfoComponent } from './panel/company-info/company-info.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.compon
     ProfileSettingsComponent,
     ShowUsersComponent,
     ShoppingCartComponent,
+    CompanyInfoComponent,
   ],
   imports: [
     BrowserModule,

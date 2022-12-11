@@ -61,7 +61,7 @@ export class UpdateUserComponent implements OnInit {
       phoneNum: new FormControl('', [Validators.minLength(3)]),
       mobileNum: new FormControl('', [Validators.minLength(3)]),
       password: new FormControl('', [Validators.required, Validators.pattern(this.passwordPattern)]),
-      password2: new FormControl('', [Validators.required, Validators.pattern(this.passwordPattern)]),
+      password2: new FormControl('', [Validators.required]),
       birthday: new FormControl('', []),
       photoURL: new FormControl('', []),
       read: new FormControl('', []),
