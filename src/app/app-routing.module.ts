@@ -21,6 +21,8 @@ import { ProfileSettingsComponent } from './user/profile-settings/profile-settin
 import { MainGuardGuard } from './guards/main-guard.guard';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 import { CompanyInfoComponent } from './panel/company-info/company-info.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { PaymentOptionComponent } from './payment/payment-option/payment-option.component';
 
 
 
@@ -43,6 +45,8 @@ const routes: Routes = [
   { path: 'session/forgot-password', component: ForgotPasswordComponent, canActivate: [SecurityGuardGuard] },
   { path: 'user/profile/settings/:id', component: ProfileSettingsComponent, canActivate: [LoggedGuardGuard] },
   { path: 'user/shopping-cart', component: ShoppingCartComponent, canActivate: [LoggedGuardGuard] },
+  { path: 'checkout/invoice/:id', component: InvoiceComponent, canActivate: [LoggedGuardGuard]},
+  { path: 'checkout/payment/payment-options', component: PaymentOptionComponent, canActivate: [LoggedGuardGuard]},
   { path: 'not-found', component: NoFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];

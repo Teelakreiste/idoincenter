@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { SwiperModule } from 'swiper/angular';
-
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NgxPrintModule } from 'ngx-print';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
 
@@ -41,6 +43,8 @@ import { ProfileSettingsComponent } from './user/profile-settings/profile-settin
 import { ShowUsersComponent } from './panel/users/show-users/show-users.component';
 import { ShoppingCartComponent } from './user/shopping-cart/shopping-cart.component';
 import { CompanyInfoComponent } from './panel/company-info/company-info.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { PaymentOptionComponent } from './payment/payment-option/payment-option.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +74,8 @@ import { CompanyInfoComponent } from './panel/company-info/company-info.componen
     ShowUsersComponent,
     ShoppingCartComponent,
     CompanyInfoComponent,
+    InvoiceComponent,
+    PaymentOptionComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +87,9 @@ import { CompanyInfoComponent } from './panel/company-info/company-info.componen
     AngularFireStorageModule,
     FormsModule,
     ReactiveFormsModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    HttpClientModule,
+    NgxPrintModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

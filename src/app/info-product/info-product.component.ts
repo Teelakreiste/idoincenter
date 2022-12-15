@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../models/product.model';
 import { AlertsService } from '../services/alerts.service';
 import { AuthService } from '../services/auth.service';
@@ -25,9 +25,11 @@ export class InfoProductComponent implements OnInit {
     uid: ''
   };
   index: number = 0;
+  buy: boolean = false;
 
   constructor(private productService: ProductService,
     private firebaseService: FirebaseService,
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -51,11 +53,36 @@ export class InfoProductComponent implements OnInit {
     return this.activatedRoute.snapshot.paramMap.get('id');
   }
 
+  buyNow() {
+    this.buy = true;
+    this.submit();
+  }
+
   submit() {
     this.index = 0;
     if (this.quantityForm.valid) {
       this.addCart();
     }
+  }
+
+  minus() {
+    if (this.quantityForm.value.quantity > 1) {
+      this.quantityForm.value.quantity = this.quantityForm.value.quantity - 1;
+      this.updateForm(this.quantityForm.value.quantity);
+    }
+  }
+
+  plus() {
+    if (this.quantityForm.value.quantity < this.products.stock) {
+      this.quantityForm.value.quantity = this.quantityForm.value.quantity + 1;
+      this.updateForm(this.quantityForm.value.quantity);
+    }
+  }
+
+  updateForm(qty: number) {
+    this.quantityForm = this.formBuilder.group({
+      quantity: new FormControl(qty, [])
+    });
   }
 
   async addCart() {
@@ -106,12 +133,20 @@ export class InfoProductComponent implements OnInit {
     const path = 'carts';
     this.firebaseService.createDocument(this.cartUser, path, (user.uid + '@' + this.cartUser.id));
     this.alerts.messageWithImage('Success', 'Product added to cart', '../../assets/images/undraw_shopping_app_flsj.svg', true, 10000);
+    this.payment();
   }
 
   updateCart(user: any) {
     const path = 'carts';
     this.firebaseService.updateDocument(this.cartUser, path, (user.uid + '@' + this.cartUser.id));
     this.alerts.messageWithImage('Success', 'Product added to cart', '../../assets/images/undraw_shopping_app_flsj.svg', true, 10000);
+    this.payment();
+  }
+
+  payment() {
+    if (this.buy) {
+      this.router.navigate(['/checkout/payment/payment-options']);
+    }
   }
 
   setCart() {

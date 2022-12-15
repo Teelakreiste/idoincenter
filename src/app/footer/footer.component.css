@@ -83,7 +83,16 @@ li {
     display: table;
     line-height: 1.5;
     margin-bottom: 15px;
-    color: #212121;
+    color: #4F4F4F;
+}
+
+.div-flex-address {
+    color: #4F4F4F;
+    display: flex;
+    flex-direction: row;
+    /* /* justify-content: space-between; */
+    /* align-items: center; */
+    
 }
 
 .icon,
@@ -104,4 +113,9 @@ li {
     list-style: none;
     font-size: larger;
     margin: 0 10px 0 0;
+}
+
+.ftco-footer-social li:hover,
+.ftco-footer-social a:hover {
+    color: #CCE2ED;
 }

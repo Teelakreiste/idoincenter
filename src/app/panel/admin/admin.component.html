@@ -2,9 +2,15 @@
     <app-header></app-header>
     <!-- <hr id="none"> -->
     <div class="container">
-        <a (click)="back()" class="btn back"><i class="fa-solid fa-arrow-left"></i> Back</a>
-        
-        <h3>{{title}} PANEL</h3>
+        <div class="flex-div">
+            <div class="flex-button">
+                <a (click)="back()" class="btn back"><i class="fa-solid fa-arrow-left"></i> Back</a>
+            </div>
+            
+            <div class="flex-tittle">
+                <h3>{{title}} PANEL</h3>
+            </div>
+        </div>
         <!-- Alinear etiqueta a la izquierda con h3 centrado -->
         <div class="container">
             <div class="row">

@@ -34,10 +34,34 @@ export class ShoppingCartComponent implements OnInit {
 
   getCartList(uid: string) {
     this.firebaseService.getCollection('carts').subscribe(carts => {
-      this.productList = carts.filter((cart: any) => cart.uid === uid);
+      this.productList = carts.filter((cart: any) => cart.uid === uid && cart.status !== 'p');
       this.amountProductCart = this.productList.length;
       this.totalPrice = this.productList.reduce((total: number, product: any) => total + product.total, 0);
     });
+  }
+
+  minus(index: number) {
+    if (this.productList[index].quantity > 1) {
+      this.productList[index].quantity--;
+      this.productList[index].total = this.productList[index].quantity * this.productList[index].product.price;
+      this.updateCart(index);
+    }
+  }
+
+  plus(index: number) {
+    if (this.productList[index].quantity < this.productList[index].product.stock) {
+      this.productList[index].quantity++;
+      this.productList[index].total = this.productList[index].quantity * this.productList[index].product.price;
+      this.updateCart(index);
+    }
+  }
+
+  updateCart(index: number) {
+    const resp = this.firebaseService.updateDocument(this.productList[index], 'carts', (this.user + '@' + this.productList[index].id));
+    if (resp) {
+      const message = 'Product updated';
+      console.log(message);
+    }
   }
 
   viewProduct(id: string) {
@@ -50,6 +74,16 @@ export class ShoppingCartComponent implements OnInit {
     }).catch(error => {
       this.alerts.messageWithImage('Error', error.message, '../../assets/images/undraw_cancel_u1it.svg', false, 10000);
     });
+  }
+
+  clearCart() {
+    for (let i = 0; i < this.productList.length; i++) {
+      this.removeProduct(this.productList[i].id);
+    }
+  }
+
+  paymentOption() {
+    this.router.navigate(['/checkout/payment/payment-options']);
   }
 
   back() {

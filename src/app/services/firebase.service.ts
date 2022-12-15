@@ -39,4 +39,13 @@ export class FirebaseService {
   getDocuments<type>(collectionPath: string) {
     return this.angularFirestore.collection<type>(collectionPath).snapshotChanges();
   }
+
+  deleteCollection(collectionPath: string) {
+    const collection = this.angularFirestore.collection(collectionPath);
+    return collection.get().subscribe((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        doc.ref.delete();
+      });
+    });
+  }
 }

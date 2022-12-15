@@ -105,6 +105,10 @@ export const environment = {
 - [Firebase](https://firebase.google.com/)
 - [SweetAlert2](https://sweetalert2.github.io/)
 - [Swiper](https://swiperjs.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [Angular Material](https://material.angular.io/)
+- [ngx-print](https://www.npmjs.com/package/ngx-print)
 
 ## Documentation
 
@@ -112,6 +116,10 @@ export const environment = {
 - [SweetAlert2](https://sweetalert2.github.io/#examples)
 - [Firebase](https://firebase.google.com/docs)
 - [Swiper](https://swiperjs.com/swiper-api)
+- [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+- [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use)
+- [Angular Material](https://material.angular.io/components/categories)
+- [ngx-print](https://www.npmjs.com/package/ngx-print)
 
 ---
 

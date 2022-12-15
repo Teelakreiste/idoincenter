@@ -3,6 +3,8 @@
     margin: 0 auto;
     padding: 15px;
     display: flex;
+    
+    margin-bottom: 10em;
 }
 
 /* Columns */
@@ -27,6 +29,7 @@
     opacity: 1;
     border-radius: 20px;
     transition: all 0.3s ease;
+    padding-top: 20px;
 }
 
 /* Product Description */
@@ -76,8 +79,62 @@
     text-transform: uppercase;
 }
 
+.icon  {
+    color: #56B38F;
+}
+
 .product-info strong {
     color: #43484D;
+}
+
+.flex-span {
+    display: flex;
+    align-items: center;
+}
+
+.flex-span-tittle{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.flex-span-tittle-two {
+    display: flex;
+    font-weight: bolder;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+.flex-form{
+    width: 10%;
+}
+
+input {
+    
+    text-align: center;
+    padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* input style minimal */
+
+.form-control {
+    display: block;
+    height: 1.3em;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 /* Product Price */

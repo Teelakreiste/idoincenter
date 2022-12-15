@@ -1,0 +1,118 @@
+<div class="minimal">
+    <!-- <app-header></app-header> -->
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN INVOICE -->
+            <!-- print - download -->
+            <div class="">
+                <div class="invoice-buttons">
+                    <a class="btn btn-default btn-lg" (click)="backToHome()">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </a>
+                    <button class="btn btn-default btn-lg" [useExistingCss]="true" printSectionId="invoice" ngxPrint>
+                        <i class="fa fa-print"></i> Print
+                    </button>
+                </div>
+            </div>
+            <!-- end print - download -->
+            <div class="col-xs-12" id="invoice">
+                <div class="grid invoice">
+                    <div class="grid-body">
+                        <div class="invoice-title">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <img [src]="companyInfo.logo" alt="" height="35">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2>invoice<br>
+                                        <span class="small">order #{{idInvoice}}</span>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <address>
+                                    <strong>Billed To:</strong><br>
+                                    {{companyInfo.name}}, Inc.<br>
+                                    {{companyInfo.address}}<br>
+                                    {{companyInfo.city}} - {{companyInfo.state}}, {{companyInfo.country}}
+                                    {{companyInfo.zip}}<br>
+                                    <abbr title="Phone">P:</abbr> {{companyInfo.phone}}
+                                </address>
+                            </div>
+                            <div class="col text-right">
+                                <address>
+                                    <strong>Shipped To:</strong><br>
+                                    {{userInfo.firstName}} {{userInfo.lastName}}<br>
+                                    P. Sherman 42,<br>
+                                    Wallaby Way, Sidney<br>
+                                    <abbr title="Phone">P:</abbr> {{userInfo.phoneNum}}
+                                </address>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <address>
+                                    <strong>Payment Method:</strong><br>
+                                    Visa ending **** 1234<br>
+                                    {{userInfo.email}}<br>
+                                </address>
+                            </div>
+                            <div class="col text-right">
+                                <address>
+                                    <strong>Order Date:</strong><br>
+                                    {{orderDate}}<br>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>ORDER SUMMARY</h3>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr class="line">
+                                            <td><strong>#</strong></td>
+                                            <td class="text-center"><strong>PROJECT</strong></td>
+                                            <td class="text-center"><strong>HRS</strong></td>
+                                            <td class="text-right"><strong>RATE</strong></td>
+                                            <td class="text-right"><strong>SUBTOTAL</strong></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let product of productList; index as i">
+                                            <td>{{i+1}}</td>
+                                            <td><strong>{{product.product.name}}</strong><br>{{product.product.description}}
+                                            </td>
+                                            <td class="text-center">{{product.quantity}}</td>
+                                            <td class="text-center">${{product.product.price}}</td>
+                                            <td class="text-right">${{product.total}}</td>
+                                        </tr>
+                                        <tr class="line"></tr>
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td class="text-right"><strong>Taxes</strong></td>
+                                            <td class="text-right"><strong>N/A</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                            </td>
+                                            <td class="text-right"><strong>Total</strong></td>
+                                            <td class="text-right"><strong>${{subtotal}}</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END INVOICE -->
+        </div>
+    </div>
+    <!-- <app-footer></app-footer> -->
+</div>

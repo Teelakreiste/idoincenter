@@ -38,27 +38,41 @@ a:hover {
     margin-top: 25px;
     padding-top: 0;
     padding-left: 0;
-    color: #275987;
+    color: #fff;
+}
+
+.flex-div {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.flex-tittle {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .back {
     width: 40px;
-    background: none;
-    border: 3px solid #275987;
-    color: #275987;
+    background: #275987;
+    color: #fff;
     border-radius: 4px;
     cursor: pointer;
     display: inline;
 }
 
 .back:hover {
-    background: #275987;
-    color: #fff;
+    background: #4b86be;
+    color: #275987;
     transition: .5s;
 }
 
 .back:hover > .fa-solid.fa-arrow-left {
-    color: #fff;
+    color: #275987;
 }
 
 .btn.back {

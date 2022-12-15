@@ -3,9 +3,10 @@
     <div class="container">
         <!-- Left Column / Headphones Image -->
         <div class="left-column">
-            <img appBrokenImg [defaultImage]="'../../assets/images/undraw_page_404_re_e9o6.svg'" src="{{products.image}}">
+            <img appBrokenImg [defaultImage]="'../../assets/images/undraw_page_404_re_e9o6.svg'"
+                src="{{products.image}}">
         </div>
-    
+
         <!-- Right Column -->
         <div class="right-column">
             <!-- Product Description -->
@@ -15,31 +16,35 @@
                 <h1>{{products.name}}</h1>
                 <p>{{products.description}}</p>
             </div>
-    
+
             <!-- Product Configuration -->
             <div class="product-configuration">
                 <!-- Product Color -->
                 <div class="product-info">
-                    <span>Stock: <strong>{{products.stock}}</strong> uds<br></span>
-                    <span>Quantity: <strong>
-                        <form [formGroup]="quantityForm" (ngSubmit)="submit()">
-                            <input formControlName="quantity" type="number" class="form-control" min="1" value="1" name="quantity">
-                            <div class="alert-danger" *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
-                                <div class="container-error-message" *ngIf="quantity.errors?.['required']">
-                                    <span class="error-message">Quantity is required</span>
-                                </div>
-                            </div>
+                    <span>Stock: <strong>{{products.stock}}</strong><br></span>
+                    <span class="flex-span">
+                        <span class="flex-span-tittle">Quantity:</span>
+                        <span class="fa-solid fa-circle-minus qty-icon" (click)="minus()"></span>
+                        <form [formGroup]="quantityForm" (ngSubmit)="submit()" class="flex-form">
+                            <input formControlName="quantity" type="number" class="form-control" min="1" value="1"
+                                name="quantity">
                             <button [disabled]="!quantityForm.valid" type="submit" id="btn-add" #addCart></button>
                         </form>
-                    </strong> uds</span>
+                        <span class="fa-solid fa-circle-plus qty-icon" (click)="plus()"></span>
+                    </span>
+                    <div class="alert-danger" *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
+                        <div class="container-error-message" *ngIf="quantity.errors?.['required']">
+                            <span class="error-message">Quantity is required</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-    
+
             <!-- Product Pricing -->
             <div class="product-price">
                 <span>$<strong>{{products.price}}</strong></span>
                 <!-- <a class="cart-btn" (click)="addCart.click()">Add to cart</a> -->
-                <a class="cart-btn card-btn-one">Buy</a>
+                <a class="cart-btn card-btn-one" (click)="buyNow()">Buy</a>
                 <a class="cart-btn card-btn-two" (click)="addCart.click()"><i class="fa-solid fa-cart-plus"></i></a>
             </div>
         </div>

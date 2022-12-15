@@ -176,7 +176,30 @@ table.shoping-cart-table tr td:last-child {
 .form-control.qty {
   text-align: center;
   width: 50px;
+  height: 20px;
   background: none;
+}
+
+.qty-icon-minus, .qty-icon-plus {
+  color: #1ab394;
+}
+
+.qty-icon-minus:hover, .qty-icon-plus:hover {
+  color: #69cfa8;
+}
+
+.qty-icon-minus {
+  margin-right: 8px;
+}
+
+.qty-icon-plus {
+  margin-left: 8px;
+}
+
+.qty-div-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-header a {
