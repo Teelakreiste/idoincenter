@@ -126,6 +126,36 @@ export const environment = {
 ## Screenshots
 Below are some preview screenshots of the application's user interface
 
+### Login
+![Login](/src/assets/screenshots/Login.jpg "Login")
+
+### Register
+![Register](/src/assets/screenshots/Register.jpg "Register")
+
+### Forgot password
+![Forgot password](/src/assets/screenshots/forgot.jpg "Forgot password")
+
+### Profile
+![Profile](/src/assets/screenshots/Profile.jpg "Profile")
+
+### Company profile
+![Company profile](/src/assets/screenshots/CompanyProfile.jpg "Company profile")
+
+### Home
+![Home](/src/assets/screenshots/Home.jpg "Home")
+
+### Information of the product
+![Information of the product](/src/assets/screenshots/InfoProduct.jpg "Information of the product")
+
+### Cart
+![Cart](/src/assets/screenshots/Cart.jpg "Cart")
+
+### Checkout
+![Checkout](/src/assets/screenshots/Checkout.jpg "Checkout")
+
+### Invoice
+
+![Invoice](/src/assets/screenshots/Invoice.jpg "Invoice")
 
 ---
 
